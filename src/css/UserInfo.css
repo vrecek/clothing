@@ -1,0 +1,92 @@
+article.user-info section.entry-informations {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  margin-bottom: 3em;
+}
+article.user-info section.entry-informations figure {
+  width: 10%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid white;
+  overflow: hidden;
+  margin-right: 1em;
+}
+article.user-info section.entry-informations figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+article.user-info section.entry-informations div.wrap {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+}
+article.user-info section.entry-informations div.wrap button {
+  width: max-content;
+  padding: 0.25em 1.5em;
+  height: max-content;
+  outline: 0;
+  border: 1px solid rgb(45, 45, 45);
+  border-radius: 0.2em;
+  cursor: pointer;
+  transition: 0.3s;
+  background: none;
+}
+article.user-info section.entry-informations div.wrap button label {
+  font-weight: 500;
+  font-family: "Baloo 2", cursive;
+}
+article.user-info section.entry-informations div.wrap button:hover {
+  background: rgb(240, 240, 240);
+}
+article.user-info section.entry-informations div.wrap div.text p.type {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+article.user-info section.entry-informations div.wrap div.text p.para {
+  color: #404040;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+article.user-info section.details {
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 0.2em;
+}
+article.user-info section.details article.user-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+}
+article.user-info section.details article.user-info.margin {
+  margin-bottom: 4em;
+}
+article.user-info section.details article.user-info p.what {
+  width: 50%;
+  padding: 0.75em;
+  background: rgb(240, 240, 240);
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  font-weight: 600;
+  color: #303030;
+  font-size: 0.95rem;
+}
+article.user-info section.details article.user-info div {
+  padding: 0.75em;
+  background: rgb(235, 235, 235);
+  width: 50%;
+}
+article.user-info section.details article.user-info div input {
+  width: 100%;
+  height: 100%;
+  padding: 0.5em;
+  font-family: "Baloo 2", cursive;
+  font-weight: 400;
+  font-size: 1.05rem;
+  outline: 0;
+  border: 0;
+  background: rgb(245, 245, 245);
+}

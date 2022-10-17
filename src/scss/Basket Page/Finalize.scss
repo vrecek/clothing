@@ -1,0 +1,251 @@
+@import '../config';
+
+main.finalize-order {
+   min-height: calc(100vh - $navHeight);
+   padding: 4em 0;
+   @include Center(55%);
+
+   h1.header {
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 2em;
+   }
+
+   p.info {
+      text-transform: uppercase;
+      font-family: 'Baloo 2', cursive;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .25em;
+   }
+
+   section.conclusion {
+      section.items { margin-bottom: 2em; }
+
+      article.item {
+         width: 100%;
+         @include Flex(sb);
+
+         figure {
+            width: 15%;
+
+            img {
+               width: 100%;
+            }
+         }
+
+         div.text {
+            width: 35%;
+            @include Flex(c);
+            flex-direction: column;
+
+            p {
+               &.company {
+                  color: #505050;
+                  font-weight: 600;
+                  margin-bottom: .5em;
+                  font-size: .9rem;
+               }
+
+               &.name {
+                  font-weight: 500;
+                  font-family: 'Baloo 2', cursive;
+                  font-size: 1.05rem;
+               }
+            }
+         }
+
+         div.price {
+            width: 15%;
+            @include Flex(c, c);
+            
+            p {
+               font-weight: 500;
+            }
+         }
+
+         div.quantity {
+            @include Flex(c, c);
+            flex-direction: column;
+            width: 15%;
+
+         }
+      }
+
+      button {
+         width: 140px;
+         padding: .75em 0;
+         outline: 0;
+         border: 0;
+         background: royalblue;
+         cursor: pointer;
+         transition: .3s;
+         margin-top: 5em;
+         border-radius: .2em;
+
+         label {
+            color: $clr-white;
+            font-family: 'Baloo 2', cursive;
+            font-weight: 500;
+            font-size: 1rem;
+         }
+
+         &:hover { background: darken(royalblue, 5%); }
+      }
+
+      div.info-wrap {
+         margin-bottom: 3em;
+
+         div.info {
+            width: 100%;
+            display: flex;
+            &:not(:last-child) { border-bottom: 2px solid white;}
+            background: rgb(240, 240, 240);
+
+            p {
+               padding: 1.25em 2em;
+               width: 50%;
+
+               &.what {
+                  font-weight: 600;
+               }
+
+               &.value {
+                  text-align: right;
+                  color: green;
+               }
+            }
+         }
+      }
+   }
+
+   section.payment-select {
+      margin-bottom: 5em;
+
+      div.wrap {
+         @include Flex(sb);
+      }
+
+      div.payment {
+         cursor: pointer;
+         width: 25%;
+         box-shadow: 0 0 1px #808080;
+         padding: 1em;
+         transition: .3s;
+
+         figure {
+            width: 60%;
+            aspect-ratio: 1;
+            margin: 0 auto;
+            pointer-events: none;
+            
+            img {
+               transition: .3s;
+               @include FullSize;
+               object-fit: cover;
+            }
+         }
+
+         p {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-top: .5em;
+            text-align: center;
+            pointer-events: none;
+         }
+
+         &:hover {
+            background: rgb(242, 242, 242);
+            
+            img { scale: 1.05; }
+         }
+
+         &.active {
+            pointer-events: none;
+            color: $clr-white;
+            background: royalblue;
+         }
+      }
+   }
+
+   section.delivery-select {
+      margin-bottom: 5em;
+
+      div.wrap {
+         background: rgb(248, 248, 248);
+         padding: 1em;
+
+         div.item {
+            @include Flex(sb, c);
+            background: rgb(240, 240, 240);
+            padding: 1em 1.25em;
+            &:not(:last-child) { margin-bottom: 1em; }
+
+            input {
+               cursor: pointer;
+               @include Rectangle(20px);
+            }
+
+            p {
+               &.price {
+                  font-weight: 500;
+               }
+
+               &.name {
+                  font-weight: 600;
+                  font-family: 'Baloo 2', cursive;
+               }
+            }
+         }
+      }
+   }
+
+   section.country-select {
+      margin-bottom: 5em;
+
+      ul.hidden {
+         list-style: none;
+         border: 1px solid #303030;
+         border-top: 0;
+         border-radius: .2em;
+         background: rgb(240, 240, 240);
+         overflow: hidden;
+         height: 0;
+         display: none;
+         transition: .3s;
+
+         li {
+            padding: 1em;
+            cursor: pointer;
+            transition: .3s;
+            font-size: .9rem;
+
+            &:hover {
+               background: rgb(245, 245, 245);
+            }
+         }
+      }
+
+      div.current {
+         width: 100%;
+         border: 1px solid #303030;
+         border-radius: .2em;
+         padding: 1em;
+         @include Flex(sb, c);
+         cursor: pointer;
+
+         p {
+            font-size: .9rem;
+            pointer-events: none;
+         }
+
+         span {
+            transition: .3s;
+            pointer-events: none;
+            @include Rectangle(25px);
+
+            svg { @include FullSize } 
+         }
+      }
+   }
+}

@@ -1,0 +1,163 @@
+section.main-info {
+  position: relative;
+  min-height: calc(100vh - 60px - 4em);
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-direction: column;
+  margin-bottom: 5em;
+}
+section.main-info button {
+  width: 100%;
+  padding: 1em 0;
+  outline: 0;
+  border: 0;
+  border-radius: 0.25em;
+  background: royalblue;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 1em;
+}
+section.main-info button label {
+  font-weight: 500;
+  color: rgb(245, 245, 245);
+  font-family: "Baloo 2", cursive;
+  font-size: 1.1rem;
+}
+section.main-info button:hover {
+  background: #2b58de;
+}
+section.main-info section.size-select h6 {
+  font-size: 0.85rem;
+  font-family: "Baloo 2", cursive;
+  font-weight: 500;
+}
+section.main-info section.size-select div.current {
+  border: 1px solid #303030;
+  border-radius: 0.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.75em;
+  cursor: pointer;
+}
+section.main-info section.size-select div.current p {
+  pointer-events: none;
+  font-weight: 500;
+}
+section.main-info section.size-select div.current span {
+  display: block;
+  height: 20px;
+  width: 20px;
+  pointer-events: none;
+}
+section.main-info section.size-select div.current span svg {
+  width: 100%;
+  height: 100%;
+}
+section.main-info section.size-select ul {
+  height: 0;
+  display: none;
+  overflow: hidden;
+  border: 1px solid #303030;
+  transition: 0.3s;
+  border-top: 0;
+  list-style: none;
+}
+section.main-info section.size-select ul li {
+  cursor: pointer;
+  width: 95%;
+  margin: 0 auto;
+  border-bottom: 1px solid #808080;
+  padding: 1em 0;
+}
+section.main-info section.size-select ul li:last-child {
+  border: 0;
+}
+section.main-info div.price {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  margin-top: 1.5em;
+}
+section.main-info div.price h4,
+section.main-info div.price h5 {
+  font-weight: 600;
+  color: rgb(222, 4, 4);
+  font-size: 2.25rem;
+}
+section.main-info div.price h5 {
+  margin-right: 0.75em;
+}
+section.main-info div.price h6.percent-discount {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.25rem;
+  background: orangered;
+  color: rgb(245, 245, 245);
+  padding: 0.15em;
+  font-weight: 700;
+}
+section.main-info div.price.active {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+section.main-info div.price.active h4 {
+  font-size: 1.75rem;
+  color: rgb(45, 45, 45);
+  position: relative;
+}
+section.main-info div.price.active h4::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  translate: -50% -50%;
+  width: 120%;
+  height: 2px;
+  background: rgb(45, 45, 45);
+}
+section.main-info div.price h6.percent-discount {
+  border-radius: 0 0 0 0.15em;
+}
+section.main-info p.tax {
+  margin-bottom: 2.25em;
+  font-size: 0.9rem;
+  color: rgb(60, 60, 60);
+  font-weight: 600;
+}
+section.main-info div.rating {
+  display: flex;
+  justify-content: none;
+  align-items: center;
+  color: crimson;
+  margin-bottom: 2em;
+}
+section.main-info div.rating span {
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+section.main-info div.rating span svg {
+  width: 100%;
+  height: 100%;
+}
+section.main-info div.rating p {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: 0.5em;
+}
+section.main-info h3.company {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: rgb(60, 60, 60);
+  font-weight: 500;
+}
+section.main-info h1.name {
+  font-size: 2.75rem;
+  font-weight: 700;
+}

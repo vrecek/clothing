@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  min-height: 100vh;
+  font-family: "Sora", sans-serif;
+  background: rgb(245, 245, 245);
+}
+body::-webkit-scrollbar {
+  width: 6px;
+  background: grey;
+}
+body::-webkit-scrollbar-thumb {
+  width: 100%;
+  border-radius: 0.5em;
+  background: royalblue;
+}
+
+div.arrow-top {
+  position: fixed;
+  z-index: 9;
+  right: 5px;
+  bottom: 5px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.3s;
+}
+div.arrow-top span {
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+  height: 35px;
+  width: 35px;
+  color: royalblue;
+}
+div.arrow-top span svg {
+  width: 100%;
+  height: 100%;
+}
+div.arrow-top:hover span {
+  scale: 1.1;
+}

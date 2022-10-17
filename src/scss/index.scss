@@ -1,0 +1,56 @@
+// font-family: 'Sora', sans-serif;
+// font-family: 'Baloo 2', cursive;
+@import './config';
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-weight: 400;
+}
+
+// div.App { overflow-x: hidden; }
+
+body {
+   width: 100vw;
+   overflow-x: hidden;
+   min-height: 100vh;
+   font-family: 'Sora', sans-serif;
+   background: rgb(245, 245, 245);
+
+   &::-webkit-scrollbar {
+      width: 6px;
+      background: grey;
+   }
+
+   &::-webkit-scrollbar-thumb {
+      width: 100%;
+      border-radius: .5em;
+      background: royalblue;
+   }
+}
+
+div.arrow-top {
+   position: fixed;
+   z-index: 9;
+   right: 5px;
+   bottom: 5px;
+   pointer-events: none;
+   opacity: 0;
+   transition: .3s;
+
+   span {
+      cursor: pointer;
+      transition: .3s;
+      @include Rectangle(35px);
+      color: royalblue;
+
+      svg {
+         @include FullSize;
+      }
+   }
+
+   &:hover {
+      span { scale: 1.1; }
+   }
+}

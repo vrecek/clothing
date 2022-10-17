@@ -1,0 +1,348 @@
+section.offer {
+  min-height: 100vh;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+}
+section.offer section.daily {
+  background: rgb(250, 250, 250);
+  border-radius: 0.5em;
+}
+section.offer section.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-direction: column;
+  width: 63%;
+}
+section.offer section.wrap section.expiry {
+  position: relative;
+  padding: 2em 0;
+}
+section.offer section.wrap section.expiry figure {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: auto;
+  right: auto;
+  width: 100%;
+  height: 100%;
+}
+section.offer section.wrap section.expiry figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section.offer section.wrap section.expiry article {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 3;
+  color: rgb(245, 245, 245);
+}
+section.offer section.wrap section.expiry article h2 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+section.offer section.wrap section.expiry article h3 {
+  font-size: 3rem;
+  text-shadow: 0 0 6px rgb(45, 45, 45);
+  margin-top: 0.25em;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+section.offer section.wrap article.first-section {
+  background: rgb(250, 250, 250);
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.offer section.wrap article.first-section div.item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em 0.5em;
+  width: 23%;
+  border: 2px solid whitesmoke;
+  border-radius: 0.5em;
+  background: rgb(250, 250, 250);
+  position: relative;
+}
+section.offer section.wrap article.first-section div.item section.menu-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: auto;
+  right: auto;
+  width: 100%;
+  height: 100%;
+  background: rgb(230, 230, 230);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+section.offer section.wrap article.first-section div.item section.menu-hover h6 {
+  font-size: 1.1rem;
+  text-align: center;
+}
+section.offer section.wrap article.first-section div.item section.menu-hover button {
+  width: 80%;
+  padding: 0.75em 0;
+  outline: 0;
+  background: royalblue;
+  border-radius: 0.2em;
+  transition: 0.3s;
+  border: 0;
+  cursor: pointer;
+}
+section.offer section.wrap article.first-section div.item section.menu-hover button label {
+  color: rgb(245, 245, 245);
+  font-weight: 600;
+  font-family: "Baloo 2", cursive;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+section.offer section.wrap article.first-section div.item section.menu-hover button:hover {
+  background: #2b58de;
+}
+section.offer section.wrap article.first-section div.item h6,
+section.offer section.wrap article.first-section div.item p {
+  font-size: 0.9rem;
+}
+section.offer section.wrap article.first-section div.item h6 {
+  font-weight: 800;
+}
+section.offer section.wrap article.first-section div.item p {
+  text-align: center;
+  margin-top: 0.25em;
+  font-weight: 500;
+}
+section.offer section.wrap article.first-section div.item span {
+  display: block;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+  position: relative;
+}
+section.offer section.wrap article.first-section div.item span::before, section.offer section.wrap article.first-section div.item span::after {
+  content: "";
+  border-radius: 50%;
+  background: orangered;
+  display: block;
+  height: 15px;
+  width: 15px;
+  position: absolute;
+}
+section.offer section.wrap article.first-section div.item span svg {
+  width: 70%;
+  height: 70%;
+}
+section.offer section.wrap article.first-section div.item:nth-child(1) span::before {
+  left: 0;
+  top: 0;
+}
+section.offer section.wrap article.first-section div.item:nth-child(1) span::after {
+  right: 0;
+  bottom: 0;
+}
+section.offer section.wrap article.first-section div.item:nth-child(3) span::before {
+  right: 0;
+  top: 0;
+}
+section.offer section.wrap article.first-section div.item:nth-child(3) span::after {
+  left: 0;
+  bottom: 0;
+}
+section.offer section.wrap article.first-section div.item:nth-child(2) span::before {
+  left: 50%;
+  top: 0;
+  translate: -50% 0;
+}
+section.offer section.wrap article.first-section div.item:nth-child(2) span::after {
+  left: 50%;
+  bottom: 0;
+  translate: -50% 0;
+}
+section.offer section.wrap article.first-section div.item:nth-child(4) span::before {
+  left: 0;
+  top: 50%;
+  translate: -100% -50%;
+}
+section.offer section.wrap article.first-section div.item:nth-child(4) span::after {
+  right: 0;
+  top: 50%;
+  translate: 100% -50%;
+}
+section.offer section.wrap article.first-section div.item:hover section.menu-hover {
+  opacity: 1;
+  pointer-events: all;
+}
+section.offer section.daily {
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+section.offer section.daily div.price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section.offer section.daily div.price h4,
+section.offer section.daily div.price h5 {
+  font-weight: 600;
+  color: rgb(222, 4, 4);
+  font-size: 1.25rem;
+}
+section.offer section.daily div.price h5 {
+  margin-right: 0.75em;
+}
+section.offer section.daily div.price h6.percent-discount {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1rem;
+  background: orangered;
+  color: rgb(245, 245, 245);
+  padding: 0.15em;
+  font-weight: 700;
+}
+section.offer section.daily div.price.active {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+section.offer section.daily div.price.active h4 {
+  font-size: 1rem;
+  color: rgb(45, 45, 45);
+  position: relative;
+}
+section.offer section.daily div.price.active h4::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  translate: -50% -50%;
+  width: 120%;
+  height: 2px;
+  background: rgb(45, 45, 45);
+}
+section.offer section.daily div.price h6 {
+  display: none;
+}
+section.offer section.daily h3.name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: center;
+}
+section.offer section.daily h1 {
+  width: 100%;
+  text-align: center;
+  background: rgb(185, 51, 51);
+  border-radius: 0 0 1.5em 1.5em;
+  color: rgb(245, 245, 245);
+  padding: 0.3em 0;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-family: "Baloo 2", cursive;
+}
+section.offer section.daily figure {
+  width: 65%;
+  aspect-ratio: 1;
+}
+section.offer section.daily figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section.offer section.daily a {
+  background: rgb(191, 56, 56);
+  color: rgb(245, 245, 245);
+  text-decoration: none;
+  padding: 0.75em 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  transition: 0.3s;
+}
+section.offer section.daily a span {
+  display: block;
+  height: 20px;
+  width: 20px;
+  transition: 0.3s;
+}
+section.offer section.daily a span svg {
+  width: 100%;
+  height: 100%;
+}
+section.offer section.daily a:hover {
+  background: rgb(181, 47, 47);
+}
+section.offer section.daily a:hover span {
+  translate: 50% 0;
+}
+section.offer section.daily section.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+section.offer section.daily section.buttons button {
+  padding: 0.75em 0;
+  outline: 0;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 35%;
+  border-radius: 0.25em;
+  border: 2px solid rgb(185, 51, 51);
+}
+section.offer section.daily section.buttons button label {
+  font-weight: 500;
+  font-size: 1.1rem;
+  font-family: "Baloo 2", cursive;
+}
+section.offer section.daily section.buttons button.cart {
+  background: rgb(185, 51, 51);
+  border: 0;
+}
+section.offer section.daily section.buttons button.cart label {
+  color: rgb(245, 245, 245);
+}
+section.offer section.daily section.buttons button.cart:hover {
+  background: #912828;
+}
+section.offer section.daily section.buttons button.page {
+  background: none;
+}
+section.offer section.daily section.buttons button.page label {
+  color: rgb(185, 51, 51);
+}
+section.offer section.daily section.buttons button.page:hover {
+  background: rgb(185, 51, 51);
+}
+section.offer section.daily section.buttons button.page:hover label {
+  color: rgb(245, 245, 245);
+}

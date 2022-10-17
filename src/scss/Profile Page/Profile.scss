@@ -1,0 +1,41 @@
+@import '../config';
+
+main.profile {
+   min-height: calc(100vh - $navHeight);
+   padding: 2em;
+   @include Flex(sb);
+
+   aside.menu-select {
+      width: 22%;
+
+      p {
+         font-size: 1.75rem;
+         font-weight: 600;
+         margin-bottom: 1em;
+      }
+
+      ul {
+         list-style: none;
+
+         li {
+            font-family: 'Baloo 2', cursive;
+            cursor: pointer;
+            transition: .3s;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #303030;
+            padding: .4em .5em;
+            border-left: 3px solid transparent;
+
+            &.active {
+               border-color: crimson;
+               pointer-events: none;
+            }
+         }
+      }
+   }
+
+   article.content-state {
+      width: 75%;
+   }
+}

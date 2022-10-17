@@ -1,0 +1,87 @@
+@import '../config';
+
+article.sale-info {
+   @include Flex(sb);
+
+   section {
+      background: #303030;
+      color: $clr-white;
+      padding: 4em;
+
+      h1 {
+         font-weight: 800;
+         font-size: 3rem;
+         color: #707070;
+      }
+
+      p.para {
+         margin-bottom: 1.5em;
+         font-size: 1.25rem;
+         color: #d3d3d3;
+         font-family: 'Baloo 2', cursive;
+         font-weight: 600;
+      }
+
+      &.left {
+         width: 60%;
+         position: relative;
+
+         div.refresh {
+            div {
+               @include Flex(c, c);
+               flex-direction: column;
+               width: max-content;
+
+               p {
+                  &.number {
+                     margin-bottom: .25em;
+                     font-size: 1.75rem;
+                     font-weight: 600;
+                  }
+
+                  &.type {
+                     font-size: .95rem;
+                  }
+               }
+            }
+         }
+
+         span.icon {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            translate: 0 -50%;
+            height: 80%;
+            aspect-ratio: 1;
+            color: #2d2d2d;
+
+            svg { @include FullSize; }
+         }
+      }
+
+      &.right {
+         width: 40%;
+
+         button {
+            padding: .75em 2em;
+            border-radius: .2em;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            transition: .3s;
+            background: rgb(249, 122, 19);
+
+            label {
+               font-family: 'Baloo 2', cursive;
+               font-weight: 600;
+               font-size: 1rem;
+               color: $clr-white;
+            }
+
+            &:hover {
+               background: darken(rgb(249, 122, 19), 5%);
+            }
+         }
+      }
+   }
+}

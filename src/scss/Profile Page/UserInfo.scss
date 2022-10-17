@@ -1,0 +1,102 @@
+@import '../config';
+
+article.user-info {
+   section.entry-informations {
+      @include Flex(none, c);
+      margin-bottom: 3em;
+
+      figure {
+         width: 10%;
+         aspect-ratio: 1;
+         border-radius: 50%;
+         border: 2px solid white;
+         overflow: hidden;
+         margin-right: 1em;
+
+         img {
+            @include FullSize;
+            object-fit: cover;
+         }
+      }
+
+      div.wrap {
+         width: 90%;
+         @include Flex(sb);
+
+         button {
+            width: max-content;
+            padding: .25em 1.5em;
+            height: max-content;
+            outline: 0;
+            border: 1px solid $clr-black;
+            border-radius: .2em;
+            cursor: pointer;
+            transition: .3s;
+            background: none;
+
+            label {
+               font-weight: 500;
+               font-family: 'Baloo 2', cursive;
+            }
+
+            &:hover { background: rgb(240, 240, 240); }
+         }
+
+         div.text {
+            p {
+               &.type {
+                  font-size: 1.25rem;
+                  font-weight: 600;
+               }
+
+               &.para {
+                  color: #404040;
+                  font-size: .9rem;
+                  font-weight: 500;
+               }
+            }
+         }
+      }
+   }
+
+   section.details {
+      border: 1px solid rgb(230, 230, 230);
+      border-radius: .2em;
+
+      article.user-info {
+         width: 100%;
+         @include Flex(sb);
+
+         &.margin {
+            margin-bottom: 4em;
+         }
+   
+         p.what {
+            width: 50%;
+            padding: .75em;
+            background: rgb(240, 240, 240);
+            @include Flex(none, c);
+            font-weight: 600;
+            color: #303030;
+            font-size: .95rem;
+         }
+   
+         div {
+            padding: .75em;
+            background: rgb(235, 235, 235);
+            width: 50%;
+   
+            input {
+               @include FullSize;
+               padding: .5em;
+               font-family: 'Baloo 2', cursive;
+               font-weight: 400;
+               font-size: 1.05rem;
+               outline: 0;
+               border: 0;
+               background: rgb(245, 245, 245);
+            }
+         }
+      }
+   }
+}

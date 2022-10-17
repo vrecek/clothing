@@ -1,0 +1,83 @@
+@import '../config';
+
+section.section-info {
+   height: 60vh;
+   position: relative;
+   user-select: none;
+
+   figure {
+      @include FullSize;
+      @include Absolute(0, 0);
+
+      img {
+         @include FullSize;
+         object-fit: cover;
+      }
+   }
+
+   article.text {
+      position: relative;
+      z-index: 4;
+      @include FullSize;
+      @include Flex(sa, c);
+      flex-direction: column;
+
+      button {
+         padding: .85em 2.5em;
+         border-radius: .15em;
+         outline: 0;
+         border: 0;
+         cursor: pointer;
+         transition: .3s;
+         background: purple;
+
+         label {
+            color: $clr-white;
+            font-family: 'Baloo 2', cursive;
+            font-weight: 500;
+            font-size: 1.1rem;
+         }
+
+         &:hover {
+            &.purple { background: darken(purple, 10%); }
+         }
+      }
+
+      div.paragraphs {
+         font-family: 'Baloo 2', cursive;
+         @include Flex(c, c);
+         flex-direction: column;
+
+         h1 {
+            font-weight: 700;
+            font-size: 2.25rem;
+         }
+
+         p {
+            font-weight: 500;
+            font-size: 1.25rem;
+            width: 70%;
+            text-align: center;
+         }
+      }
+
+      &.light {
+         h1 {
+            color: $clr-white;
+         }
+
+         p { 
+            color: rgb(220, 220, 220);
+            text-shadow: 0 0 2px $clr-black;
+         }
+      }
+
+      &.dark {
+         div.paragraphs {
+            background: rgba(255, 255, 255, .7);
+            padding: .5em;
+            border-radius: .25em;
+         }
+      }
+   }
+}

@@ -1,0 +1,134 @@
+@import '../config';
+
+section.opinions {
+   form.write-comment {
+      margin: 2em 0 3em 0;
+
+      h6 {
+         font-weight: 700;
+         font-family: 'Baloo 2', cursive;
+         font-size: .95rem;
+      }
+
+      div.wrap {
+         @include Flex(sb, none);
+
+         div {
+            @include Flex(sb, none);
+            flex-direction: column;
+            width: 18%;
+
+            button {
+               width: 100%;
+               padding: .5em 0;
+               outline: 0;
+               background: royalblue;
+               border: 0;
+               cursor: pointer;
+               transition: .3s;
+               border-radius: .25em;
+
+               label {
+                  font-family: 'Baloo 2', cursive;
+                  font-size: 1rem;
+                  font-weight: 500;
+                  color: $clr-white;
+               }
+
+               &:hover {
+                  background: darken(royalblue, 5%);
+               }
+            }
+
+            figure {
+               @include FullSize(60px);
+               width: 100%;
+               aspect-ratio: 1;
+               height: auto;
+               overflow: hidden;
+               border-radius: 50%;
+               border: 1px solid #303030;
+   
+               img {
+                  @include FullSize;
+                  object-fit: cover;
+               }
+            }
+         }
+
+         textarea {
+            width: 80%;
+            resize: none;
+            height: 200px;
+            outline: 0;
+            border-radius: .15em;
+            border: 1px solid #303030;
+            padding: .75em;
+            font-weight: 600;
+            font-family: 'Sora', sans-serif;
+         }
+      }
+   }
+
+   button.toggler {
+      width: 100%;
+      padding: 1em 0;
+      outline: 0;
+      border-radius: .2em;
+      transition: .3s;
+      cursor: pointer;
+      border: 1px solid #303030;
+      background: rgb(240, 240, 240);
+
+      label {
+         font-family: 'Baloo 2', cursive;
+         font-weight: 500;
+         font-size: 1.1rem;
+      }
+
+      &:hover {
+         background: rgb(245, 245, 245);
+      }
+   }
+
+   section.sum-rating {
+      div.wrap {
+         @include Flex(sb, c);
+         align-items: stretch;
+         color: crimson;
+         &:not(:last-child) { margin-bottom: 1em; }
+
+         p {
+            font-weight: 700;
+            font-size: 1.25rem;
+         }
+
+         div.first {
+            width: 10%;
+            @include Flex(sb, c);
+
+            span {
+               @include Rectangle(25px);
+               svg { @include FullSize; }
+            }
+         }
+
+         div.line {
+            width: 70%;
+            background: rgb(230, 230, 230);
+            border-radius: .5em;
+            overflow: hidden;
+
+            div.fill {
+               background: crimson;
+               height: 100%;
+            }
+         }
+
+         div.last {
+            width: 10%;
+            color: crimson;
+         }
+      }
+   }
+}

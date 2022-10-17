@@ -1,0 +1,35 @@
+main.profile {
+  min-height: calc(100vh - 60px);
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+}
+main.profile aside.menu-select {
+  width: 22%;
+}
+main.profile aside.menu-select p {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+main.profile aside.menu-select ul {
+  list-style: none;
+}
+main.profile aside.menu-select ul li {
+  font-family: "Baloo 2", cursive;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #303030;
+  padding: 0.4em 0.5em;
+  border-left: 3px solid transparent;
+}
+main.profile aside.menu-select ul li.active {
+  border-color: crimson;
+  pointer-events: none;
+}
+main.profile article.content-state {
+  width: 75%;
+}

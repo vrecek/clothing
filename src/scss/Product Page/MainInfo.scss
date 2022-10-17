@@ -1,0 +1,125 @@
+@import '../config';
+
+section.main-info {
+   position: relative;
+   min-height: calc(100vh - $navHeight - 4em);
+   @include Flex(sb, none);
+   flex-direction: column;
+   margin-bottom: 5em;
+
+   button {
+      width: 100%;
+      padding: 1em 0;
+      outline: 0;
+      border: 0;
+      border-radius: .25em;
+      background: royalblue;
+      cursor: pointer;
+      transition: .3s;
+      margin-top: 1em;
+
+      label {
+         font-weight: 500;
+         color: $clr-white;
+         font-family: 'Baloo 2', cursive;
+         font-size: 1.1rem;
+      }
+
+      &:hover {
+         background: darken(royalblue, 5%);
+      }
+   }
+
+   section.size-select {
+      h6 {
+         font-size: .85rem;
+         font-family: 'Baloo 2', cursive;
+         font-weight: 500;
+      }
+
+      div.current {
+         border: 1px solid #303030;
+         border-radius: .2em;
+         @include Flex(sb, c);
+         width: 100%;
+         padding: .75em;
+         cursor: pointer;
+
+         p {
+            pointer-events: none;
+            font-weight: 500;
+         }
+
+         span {
+            @include Rectangle(20px);
+            pointer-events: none;
+            svg { @include FullSize; }
+         }
+      }
+
+      ul {
+         height: 0;
+         display: none;
+         overflow: hidden;
+         border: 1px solid #303030;
+         transition: .3s;
+         border-top: 0;
+         list-style: none;
+
+         li {
+            cursor: pointer;
+            @include Center(95%);
+            border-bottom: 1px solid #808080;
+            padding: 1em 0;
+
+            &:last-child { border: 0; }
+         }
+      }
+   }
+
+   div.price {
+      @include Flex(none, c);
+      @include PriceStyle(2.25rem, 1.75rem, 1.25rem);
+      margin-top: 1.5em;
+
+      h6.percent-discount {
+         border-radius: 0 0 0 .15em;
+      }
+   }
+
+   p.tax {
+      margin-bottom: 2.25em;
+      font-size: .9rem;
+      color: rgb(60, 60, 60);
+      font-weight: 600;
+   }
+
+   div.rating {
+      @include Flex(none, c);
+      color: crimson;
+      margin-bottom: 2em;
+
+      span {
+         @include Rectangle(20px);
+         svg { @include FullSize; }
+      }
+
+      p {
+         font-size: 1rem;
+         font-weight: 700;
+         margin-left: .5em;
+      }
+   }
+
+   h3.company {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      color: rgb(60, 60, 60);
+      font-weight: 500;
+   }
+
+   h1.name {
+      font-size: 2.75rem;
+      font-weight: 700;
+   }
+}

@@ -1,0 +1,164 @@
+@import '../config';
+
+main.login-register {
+   height: calc(100vh - 65px);
+   padding: 1em;
+   @include Flex(c, c);
+
+   section.wrap {
+      width: 50%;
+      background: rgb(252, 252, 252);
+      border-radius: .5em;
+      padding: 2em;
+      position: relative;
+
+      &::before,
+      &::after {
+         content: '';
+         position: absolute;
+         @include Rectangle(15px);
+         border-radius: 50%;
+         background: orangered;
+      }
+
+      &::before { left: 0; top: 0; translate: -50% -50%; }
+      &::after { right: 0; bottom: 0; translate: 50% 50%; }
+
+      section.forms {
+         @include Center(60%);
+         position: relative;
+         overflow: hidden;
+
+         div.move {
+            display: flex;
+            transition: .2s;
+         }
+
+         form {
+            flex-shrink: 0;
+            padding-top: 1.5em;
+            width: 100%;
+            @include Flex(c, none);
+            position: relative;
+            flex-direction: column;
+
+            h6.result {
+               @include Absolute(50%, 0);
+               translate: -50% 0;
+               width: 100%;
+               text-align: center;
+               font-family: 'Baloo 2', cursive;
+               background: rgb(252, 252, 252);
+               font-weight: 500;
+               font-size: .95rem;
+
+               &.true { color: green; }
+               &.false { color: red; }
+            }
+
+            button {
+               width: 100%;
+               margin-top: 1.5em;
+               padding: .75em;
+               outline: 0;
+               cursor: pointer;
+               transition: .3s;
+               background: royalblue;
+               border-radius: .25em;
+               border: 0;
+
+               label {
+                  color: $clr-white;
+                  font-size: 1rem;
+                  font-weight: 500;
+                  font-family: 'Baloo 2', cursive;
+               }
+
+               &:hover { background: darken(royalblue, 5%); }
+            }
+
+            div.input {
+               position: relative;
+               &:not(.margin) { margin-bottom: 2em; }
+               width: 100%;
+
+               label {
+                  position: absolute;
+                  left: 0;
+                  bottom: 100%;
+                  font-family: 'Baloo 2', cursive;
+                  text-transform: uppercase;
+                  font-size: .9rem;
+                  font-weight: 500;
+               }
+
+               input {
+                  width: 100%;
+                  border: 1px solid rgb(220, 220, 220);
+                  border-radius: .5em;
+                  padding: .5em;
+                  font-family: 'Baloo 2', cursive;
+                  font-size: 1rem;
+                  outline: 0;
+                  font-weight: 500;
+               }
+            }
+
+            div.fr {
+               @include Flex(sb, c);
+               margin-top: .25em;
+               font-family: 'Baloo 2', cursive;
+
+               label,
+               h6 {
+                  font-weight: 500;
+                  cursor: pointer;
+                  color: rgb(80, 80, 80);
+               }
+
+               div {
+                  @include Flex(none, c);
+                  
+                  input { cursor: pointer; }
+
+                  label {
+                     margin-right: .25em;
+                  }
+               }
+
+               h6 {
+                  font-size: 1rem;
+                  transition: .3s;
+
+                  &:hover {
+                     color: royalblue;
+                  }
+               }
+            }
+         }
+      }
+
+      section.select-form {
+         @include Flex(c, c);
+         @include Center(50%);
+         margin-bottom: 4em;
+
+         div {
+            width: 50%;
+            font-family: 'Baloo 2', cursive;
+            text-align: center; 
+            font-size: 1.3rem;
+            color: rgb(100, 100, 100);
+            font-weight: 600;
+            cursor: pointer;
+            transition: .3s;
+            border-bottom: 2px solid transparent;
+
+            &.active {
+               border-color: royalblue;
+               pointer-events: none;
+            }
+         }
+      }
+   }
+}

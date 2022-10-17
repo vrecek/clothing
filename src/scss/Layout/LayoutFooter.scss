@@ -1,0 +1,92 @@
+@import '../config';
+
+footer.layout-footer {
+   padding: 4em;
+   background: rgb(34, 44, 58);
+   color: $clr-white;
+   padding-bottom: 1em;
+
+   div.bar {
+      @include Flex(sb, c);
+      
+      p {
+         font-family: 'Baloo 2', cursive;
+         font-size: 1rem;
+      }
+   }
+
+   div.logo {
+      margin-bottom: 4em;
+      font-weight: 800;
+      font-family: 'Baloo 2', cursive;
+      letter-spacing: 1px;
+   }
+
+   section.wrap {
+      margin-bottom: 5em;
+      @include Flex(sb, none);
+
+      section.right {
+         width: 25%;
+
+         div.icons {
+            @include Flex(fe, c);
+            margin-top: 1em;
+
+            span {
+               margin-left: .25em;
+               @include Rectangle(30px);
+               cursor: pointer;
+               transition: .3s;
+
+               svg {
+                  @include FullSize;
+               }
+            }
+         }
+         
+         article.footer-contact {
+            width: 100%;
+            background: rgb(52, 67, 90);
+            padding: 1.5em;
+            @include Flex(fe, fe);
+            border-radius: 2em 1em 2em 1em;
+            flex-direction: column;
+            color: rgb(134, 146, 162);
+
+            p {
+               font-size: .9rem;
+               letter-spacing: 1px;
+               &:not(:last-child) { margin-bottom: .5em; }
+
+               &.location {
+                  margin-top: 1.5em;
+               }
+            }
+         }
+      }
+
+      ul {
+         list-style: none;
+
+         li {
+            &:first-child {
+               font-weight: 800;
+               margin-bottom: 1.5em;
+            }
+
+            &:not(:first-child) {
+               color: rgb(115, 151, 200);
+               font-weight: 500;
+               margin-bottom: .75em;
+               cursor: pointer;
+               transition: .3s;
+
+               &:hover {
+                  color: rgb(87, 114, 151);
+               }
+            }
+         }
+      }
+   }
+}

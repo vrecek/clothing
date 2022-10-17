@@ -1,0 +1,126 @@
+section.opinions form.write-comment {
+  margin: 2em 0 3em 0;
+}
+section.opinions form.write-comment h6 {
+  font-weight: 700;
+  font-family: "Baloo 2", cursive;
+  font-size: 0.95rem;
+}
+section.opinions form.write-comment div.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+}
+section.opinions form.write-comment div.wrap div {
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-direction: column;
+  width: 18%;
+}
+section.opinions form.write-comment div.wrap div button {
+  width: 100%;
+  padding: 0.5em 0;
+  outline: 0;
+  background: royalblue;
+  border: 0;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0.25em;
+}
+section.opinions form.write-comment div.wrap div button label {
+  font-family: "Baloo 2", cursive;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(245, 245, 245);
+}
+section.opinions form.write-comment div.wrap div button:hover {
+  background: #2b58de;
+}
+section.opinions form.write-comment div.wrap div figure {
+  width: 60px;
+  height: 60px;
+  width: 100%;
+  aspect-ratio: 1;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid #303030;
+}
+section.opinions form.write-comment div.wrap div figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section.opinions form.write-comment div.wrap textarea {
+  width: 80%;
+  resize: none;
+  height: 200px;
+  outline: 0;
+  border-radius: 0.15em;
+  border: 1px solid #303030;
+  padding: 0.75em;
+  font-weight: 600;
+  font-family: "Sora", sans-serif;
+}
+section.opinions button.toggler {
+  width: 100%;
+  padding: 1em 0;
+  outline: 0;
+  border-radius: 0.2em;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid #303030;
+  background: rgb(240, 240, 240);
+}
+section.opinions button.toggler label {
+  font-family: "Baloo 2", cursive;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+section.opinions button.toggler:hover {
+  background: rgb(245, 245, 245);
+}
+section.opinions section.sum-rating div.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-items: stretch;
+  color: crimson;
+}
+section.opinions section.sum-rating div.wrap:not(:last-child) {
+  margin-bottom: 1em;
+}
+section.opinions section.sum-rating div.wrap p {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+section.opinions section.sum-rating div.wrap div.first {
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.opinions section.sum-rating div.wrap div.first span {
+  display: block;
+  height: 25px;
+  width: 25px;
+}
+section.opinions section.sum-rating div.wrap div.first span svg {
+  width: 100%;
+  height: 100%;
+}
+section.opinions section.sum-rating div.wrap div.line {
+  width: 70%;
+  background: rgb(230, 230, 230);
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+section.opinions section.sum-rating div.wrap div.line div.fill {
+  background: crimson;
+  height: 100%;
+}
+section.opinions section.sum-rating div.wrap div.last {
+  width: 10%;
+  color: crimson;
+}

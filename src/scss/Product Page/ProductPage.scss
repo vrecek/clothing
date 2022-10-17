@@ -1,0 +1,110 @@
+@import '../config';
+
+main.product-page {
+   min-height: 100vh;
+
+   section.main-content {
+      @include Flex(sa, none);
+      margin-bottom: 2em;
+
+      section.image-container {
+         width: 35%;
+         height: calc(100vh - $navHeight);
+         position: sticky;
+         top: calc($navHeight / 2);
+         padding: 2em;
+
+         section.all-images {
+            width: 100%;
+            height: 12%;
+            display: flex;
+            margin-top: 1em;
+
+            figure {
+               &:not(:last-child) { margin-right: .5em; }
+               width: 27%;
+               height: 100%;
+               border: 2px solid #6e6e6e;
+               border-radius: .2em;
+               padding: .25em;
+               cursor: pointer;
+
+               img {
+                  @include FullSize;
+                  object-fit: cover;
+               }
+            }
+         }
+
+         figure.main {
+            width: 100%;
+            height: 80%;
+            background: rgb(235, 235, 235);
+            @include Flex(c, c);
+            border-radius: .15em;
+
+            img {
+               width: 100%;
+            }
+         }
+      }
+   
+      article.content {
+         width: 40%;
+         padding: 2em;
+
+         ul.dropdowns {
+            list-style: none;
+            margin-bottom: 5em;
+
+            li {
+               border-top: 1px solid #909090;
+               &:last-child { border-bottom: 1px solid #909090; }
+               padding-bottom: .5em;
+               
+               div.header {
+                  @include Flex(sb, c);
+                  padding: 1em 0 .5em 0;
+                  cursor: pointer;
+
+                  p {
+                     font-family: 'Baloo 2', cursive;
+                     font-weight: 600;
+                     font-size: 1.1rem;
+                     pointer-events: none;
+                  }
+                  
+                  span {
+                     pointer-events: none;
+                     @include Rectangle(25px);
+                     svg { @include FullSize; }
+                  }
+               }   
+
+               div.inner {
+                  display: none;
+                  height: 0;
+                  overflow: hidden;
+                  transition: .3s;
+
+                  div.info {
+                     @include Flex(none, c);
+                     font-size: 1rem;
+                     &:not(:last-child) { margin-bottom: .5em;}
+
+                     h5 {
+                        font-weight: 700;
+                        margin-right: .5em;
+                     }
+                  }
+
+                  p {
+                     font-size: .9rem;
+                     color: #404040;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

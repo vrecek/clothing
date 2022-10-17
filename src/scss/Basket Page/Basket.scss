@@ -1,0 +1,179 @@
+@import '../config';
+
+main.basket-page {
+   min-height: 100vh;
+   padding: 4em 2em 2em 2em;
+   @include Flex(sb);
+
+   section {
+      &.summary {
+         width: 30%;
+         position: sticky;
+         top: 5em;
+         height: max-content;
+
+         button {
+            width: 100%;
+            padding: .75em 0;
+            background: orangered;
+            outline: 0;
+            border: 0;
+            transition: .3s;
+            cursor: pointer;
+            border-radius: .2em;
+            margin-top: 1em;
+
+            label {
+               font-weight: 500;
+               font-size: 1rem;
+               font-family: 'Baloo 2', cursive;
+               color: $clr-white;
+            }
+
+            &:hover { background: darken(orangered, 5%); }
+         }
+
+         ul {
+            list-style: none;
+
+            li {
+               &:not(:last-child) { border-bottom: 1px solid #c2c2c2; }
+               padding: 1em 0;
+               &:first-child { padding-top: 0; }
+               width: 100%;
+               &:not(.coupon) { @include Flex(sb); }
+
+               &.coupon {
+                  div {
+                     @include Flex(sb);
+                  }
+
+                  section.coupon {
+                     display: none;
+                     overflow: hidden;
+                     height: 0;
+                     transition: .3s;
+
+                     input {
+                        width: 100%;
+                        padding: .75em;
+                        border-radius: .15em;
+                        outline: 0;
+                        border: 1px solid #606060;
+                     }
+                  }
+               }
+
+               p {
+                  font-size: 1.05rem;
+                  font-family: 'Baloo 2', cursive;
+
+                  &.what {
+                     font-weight: 600;
+                  }
+
+                  &.value {
+                     color: rgb(100, 100, 100);
+                     font-weight: 500;
+                  }
+
+                  &.big {
+                     font-size: 2.75rem;
+                     color: rgb(20, 20, 20);
+                  }
+
+                  &.coupon {
+                     @include Flex(none, c);
+                     cursor: pointer;
+
+                     span {
+                        @include Rectangle(20px);
+                        pointer-events: none;
+                        transition: .3s;
+
+                        svg { @include FullSize; }
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      &.items {
+         width: 65%;
+
+         h1 {
+            font-weight: 700;
+            margin-bottom: .5em;
+         }
+         
+         article.item {
+            border-top: 1px solid #c2c2c2;
+            padding: 1em 0;
+            @include Flex(sb);
+
+            section {
+               &.text {
+                  width: 40%;
+                  
+                  p {
+                     &.company {
+                        color: rgb(60, 60, 60);
+                        font-size: .9rem;
+                        font-weight: 500;
+                        margin-bottom: .5em;
+                     }
+
+                     &.name {
+                        font-family: 'Baloo 2', cursive;
+                        font-weight: 700;
+                        font-size: 1.25rem;
+                     }
+                  }
+               }
+
+               &.price {
+                  width: 10%;
+                  @include Flex(c, c);
+                  
+                  p {
+                     font-weight: 400;
+                     font-size: 1rem;
+                  }
+               }
+
+               &.quantity {
+                  width: 20%;
+                  @include Flex(c, c);
+
+                  span {
+                     width: 25%;
+                     @include Flex(c, c);
+                     cursor: pointer;
+
+                     svg {
+                        @include Rectangle(25px);
+                     }
+                  }
+
+                  p {
+                     width: 30%;
+                     padding: 1em 0;
+                     text-align: center;
+                     font-weight: 500;
+                     font-size: 1.1rem;
+                  }
+               }
+            }
+
+            figure {
+               width: 15%;
+
+               img {
+                  width: 100%;
+               }
+            }
+         }
+      }
+   }
+}

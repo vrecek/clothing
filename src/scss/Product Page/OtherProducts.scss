@@ -1,0 +1,64 @@
+@import '../config';
+
+section.show-products {
+   @include Center(90%);
+   margin-top: 8em;
+   &:last-of-type { margin-bottom: 8em; }
+
+   h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', cursive;
+   }
+
+   section.container {
+      display: flex;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      padding-bottom: 1.5em;
+
+      &::-webkit-scrollbar {
+         height: 12px;
+         background: #303030;
+      }
+
+      &::-webkit-scrollbar-thumb {
+         height: 100%;
+         background: orange;
+      }
+
+      article.item {
+         flex-shrink: 0;
+         &:not(:last-child) { margin-right: .75em; }
+         width: 20%;
+         cursor: pointer;
+         position: relative;
+
+         p {
+            font-family: 'Baloo 2', cursive;
+            font-weight: 500;
+            font-size: 1.1rem;
+         }
+
+         div.price {
+            @include PriceStyle;
+            @include Flex(none, c);
+
+            h6.percent-discount {
+               left: 0;
+               right: auto;
+               border-radius: 0 0 .2em 0;
+            }
+         }
+
+         figure {
+            img {
+               width: 100%;
+               transition: .3s;
+            }
+         }
+
+         &:hover { figure img { scale: 1.1; } }
+      }
+   }
+}
