@@ -1,19 +1,16 @@
 import React from 'react'
 import { NavigateFunction, useNavigate } from 'react-router-dom'
+import { ISummary } from '../../../interfaces/BasketInterfaces'
 import Button from '../../Common/Button'
 import Coupon from './Coupon'
 import ListItem from './ListItem'
 
-const Summary = () => {
+const Summary = ({products, priceSum}: ISummary) => {
    const n: NavigateFunction = useNavigate()
-   
-   const finalizeRedirect = (e: React.MouseEvent): void => {
-      const t: HTMLElement = e.target as HTMLElement
 
+   const finalizeRedirect = (): void => {
       n('/finalize', {
-         state: {
-            allow: true
-         }
+         state: { products }
       })
    }
 
@@ -22,16 +19,18 @@ const Summary = () => {
 
          <ul>
 
-            <ListItem name={`Products`} value={5} />
-            <ListItem name={`Delivery`} value={`2 $`} />
+            <ListItem name={`Products`} value={products.length} />
+            <ListItem name={`Delivery`} value={`0-5 $`} />
 
             <Coupon />
 
-            <ListItem cname='big' name={`Total`} value={`999 $`} />
+            <ListItem cname='big' name={`Total`} value={`${priceSum} $`} />
 
          </ul>
 
-         <Button action={finalizeRedirect} text='Continue' />
+         {
+            products.length ? <Button action={finalizeRedirect} text='Continue' /> : <></>
+         }
 
       </section>
    )

@@ -16,10 +16,11 @@ section.comments {
 
    section.container {
       h2.empty {
-         font-size: 2rem;
-         font-weight: 700;
+         font-size: 1.75rem;
          font-family: 'Baloo 2', cursive;
          margin-bottom: 4em;
+         color: #505050;
+         font-weight: 500;
       }
 
       article.comment {
@@ -29,9 +30,9 @@ section.comments {
             @include Flex(none, c);
 
             figure {
-               @include FullSize(60px);
-               border: 1px solid #303030;
+               @include FullSize(clamp(35px, 12vw, 65px));
                border-radius: 50%;
+               flex-shrink: 0;
                @include Flex(c, c);
                margin-right: 10px;
                overflow: hidden;
@@ -52,7 +53,7 @@ section.comments {
                   p.rate-count { display: none; }
 
                   &.rating span {
-                     @include Rectangle(20px);
+                     @include Rectangle(clamp(15px, 5vw, 20px));
 
                      &.active {
                         color: crimson;
@@ -64,27 +65,59 @@ section.comments {
             }
          }
 
+         span.separate {
+            margin: 0 .5em;
+            color: #606060;
+         }
+
          p {
             font-family: 'Baloo 2', cursive;
 
+            &.name,
+            &.date,
+            &.author {
+               @include Clamp(.85, 4, 1);
+            }
+
             &.name {
                margin-left: .5em;
-               font-size: 1.05rem;
                font-weight: 700;
             }
 
             &.date {
                color: #606060;
                font-weight: 600;
-               font-size: 1rem;
+            }
+
+            &.author {
+               font-weight: 500;
             }
 
             &.text {
-               @include Center(calc(100% - 140px));
+               @include Center(calc(100% - 150px));
                font-size: 1rem;
                font-weight: 500;
             }
          }
       }
+   }
+
+   @media (max-width: 768px) {
+      width: 95%;
+
+      section.container { article.comment {
+         p {
+            &.text {
+               width: 100%;
+            }
+         }
+
+         section.user-info {
+            div.wrap {
+               flex-direction: column;
+               align-items: flex-start;
+            }
+         }
+      } }
    }
 }

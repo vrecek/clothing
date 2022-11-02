@@ -1,32 +1,55 @@
 import React from 'react'
+import AppendResult from '../../../functions/AppendText'
+import Fetches from '../../../functions/Fetches'
 import { LoadingCss } from '../../../functions/Loading'
+import { Inputs } from '../../../interfaces/CommonInterfaces'
 import Button from '../../Common/Button'
 import InputDiv from '../InputDiv'
 import ForgotAndRemember from './ForgotAndRemember'
 
 const Login = () => {
-   const submitLogin = (e: React.FormEvent): void => {
+   const submitLogin = async (e: React.FormEvent): Promise<void> => {
       e.preventDefault()
 
-      const t: HTMLElement = e.target as HTMLElement
+      const t: HTMLFormElement = e.target as HTMLFormElement
 
       const l: LoadingCss = new LoadingCss()
       l.defaultStyleDots({
          position: 'containerWidth',
-         backgroundClr: 'rgba(255, 255, 255, .8)',
-         
+         backgroundClr: 'rgba(255, 255, 255, .8)'   
       })
       l.append(t.parentElement!.parentElement!)
 
+      const at: AppendResult = new AppendResult('h6', 'result false')
+      at.setMessage = 'Unkown error. Try again.'
+      
+      const elements: HTMLInputElement[] = Array.from(t.elements as Inputs)
+      const btn: HTMLElement = elements.slice(-1)[0]
+
       try {
-         setTimeout(() => {
-            l.remove()
-         }, 2000);
+         Fetches.disableButton(btn)
 
-      }catch(err) {
-         console.log(err)
+         await Fetches.mix(process.env.REACT_APP_USER_LOGIN!, 'POST', {
+            username: elements[0].value,
+            password: elements[1].value,
+            remember: elements[2].checked
+         })
 
-      }finally {  }
+         at.setClass = 'result true'
+         at.setMessage = 'Successfully logged in'
+
+         for(let x of elements.slice(0, 2)) x.value = ''
+
+         setTimeout(() => window.location.href = '/', 1000)
+
+      }catch(err: any) {
+         at.setMessage = Fetches.returnFetchErrorState(err).msg
+         Fetches.enableButton(btn)
+
+      }finally {
+         l.remove()
+         at.appendTo(t, 2.5)
+      }
    }
 
    return (

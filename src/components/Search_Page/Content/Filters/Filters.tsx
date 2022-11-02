@@ -3,8 +3,9 @@ import Button from '../../../Common/Button'
 import {TbAdjustmentsHorizontal} from 'react-icons/tb'
 import DropDown from '../../../../functions/DropdownClass'
 import FilterMenu from './FilterMenu'
+import { IFilterState } from '../../../../interfaces/SearchpageInterfaces'
 
-const Filters = () => {
+const Filters = ({filtersState}: IFilterState) => {
    const [dd] = React.useState<DropDown>(new DropDown())
 
    const toggleMenu = (e: React.MouseEvent): void => {
@@ -28,9 +29,9 @@ const Filters = () => {
    return (
       <section className="filters">
 
-         <Button action={toggleMenu} additional={<TbAdjustmentsHorizontal />} cname='toggler' text='Filters' />
+         <Button action={toggleMenu} additional={<TbAdjustmentsHorizontal />} cname='toggler' text='' />
 
-         <FilterMenu />
+         <FilterMenu filtersState={filtersState} />
 
       </section>
    )

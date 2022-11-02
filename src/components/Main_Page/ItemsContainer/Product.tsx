@@ -5,11 +5,11 @@ import FigureImage from '../../Common/FigureImage'
 import Price from './Price'
 import ProductRate from './ProductRate'
 
-const Product = ({image, price, id, rating, discount, name}: IHomepageProduct) => {
+const Product = ({image, price, _id, starsSum, totalVotes, discount, name}: IHomepageProduct) => {
    const n: NavigateFunction = useNavigate()
    
    return (
-      <article onClick={() => n(`/product/${id}`)} className="product">
+      <article onClick={() => n(`/product/${_id}`)} className="product">
 
          <div>
 
@@ -21,7 +21,7 @@ const Product = ({image, price, id, rating, discount, name}: IHomepageProduct) =
 
          <div>
 
-            <ProductRate rate={rating} />
+            <ProductRate totalVotes={totalVotes} starsSum={starsSum} />
             
             <Price price={price} discount={discount} />
 

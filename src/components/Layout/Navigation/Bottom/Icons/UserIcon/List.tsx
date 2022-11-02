@@ -1,14 +1,22 @@
 import React from 'react'
-import {BiCog, BiMessageAltDetail} from 'react-icons/bi'
+import {BiCog, BiHome, BiMessageAltDetail} from 'react-icons/bi'
 import { BsPatchQuestion } from 'react-icons/bs'
+import { MdAdminPanelSettings } from 'react-icons/md'
 import {RiShoppingBasket2Line} from 'react-icons/ri'
 import { NavigateFunction, useNavigate } from 'react-router-dom'
 import { IUserMenuList } from '../../../../../../interfaces/NavigationInterfaces'
+import { UserRole } from '../../../../../../interfaces/UserType'
 
-const List = () => {
+const List = ({userRole}: {userRole: UserRole | undefined}) => {
    const n: NavigateFunction = useNavigate()
    
    const list: IUserMenuList[] = [
+      {
+         str: 'Homepage',
+         icon: <BiHome />,
+         url: '/'
+      },
+
       {
          str: 'Account',
          icon: <BiCog />,
@@ -25,14 +33,16 @@ const List = () => {
          str: 'Contact',
          icon: <BiMessageAltDetail />,
          url: '/contact'
-      },
-
-      {
-         str: 'Privacy policy',
-         icon: <BsPatchQuestion />,
-         url: '/'
       }
    ]
+
+   if(userRole && userRole === 'admin') {
+      list.push({
+         str: 'Panel',
+         icon: <MdAdminPanelSettings />,
+         url: `/admin/${process.env.REACT_APP_ADMIN_ROUTE}`
+      })
+   }
    
    return (
       <ul className="list">

@@ -1,12 +1,27 @@
 @import '../config';
 
 article.user-info {
+   position: relative;
+
+   h6 {
+      font-size: .9rem;
+      font-weight: 500;
+      position: absolute;
+      left: 0;
+      top: 100%;
+
+      &.true { color: green; }
+      &.false { color: red; }
+   }
+
    section.entry-informations {
       @include Flex(none, c);
       margin-bottom: 3em;
+      position: relative;
 
       figure {
          width: 10%;
+         min-width: 50px;
          aspect-ratio: 1;
          border-radius: 50%;
          border: 2px solid white;
@@ -45,13 +60,13 @@ article.user-info {
          div.text {
             p {
                &.type {
-                  font-size: 1.25rem;
+                  @include Clamp(1, 4, 1.25);
                   font-weight: 600;
                }
 
                &.para {
                   color: #404040;
-                  font-size: .9rem;
+                  @include Clamp(.85, 4, .9);
                   font-weight: 500;
                }
             }
@@ -78,7 +93,7 @@ article.user-info {
             @include Flex(none, c);
             font-weight: 600;
             color: #303030;
-            font-size: .95rem;
+            @include Clamp(.85, 4, .95);
          }
    
          div {
@@ -91,7 +106,7 @@ article.user-info {
                padding: .5em;
                font-family: 'Baloo 2', cursive;
                font-weight: 400;
-               font-size: 1.05rem;
+               @include Clamp(.85, 4, 1.05);
                outline: 0;
                border: 0;
                background: rgb(245, 245, 245);

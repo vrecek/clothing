@@ -1,0 +1,65 @@
+@import '../config';
+
+main.final-order-component {
+    height: calc(100vh - $navHeight);
+    @include Flex(sa, c);
+    flex-direction: column;
+    padding: 5em .5em;
+
+    div {
+        &.text {
+            text-align: center;
+
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: .25em;
+            }
+
+            p {
+                font-family: 'Baloo 2', cursive;
+                font-size: 1.2rem;
+
+                span {
+                    color: royalblue;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &.last {
+            color: royalblue;
+
+            span {
+                @include Rectangle(15vw);
+                margin: 0 auto;
+
+                svg { @include FullSize; }
+            }
+
+            p {
+                font-size: .9rem;
+                font-weight: 500;
+                text-align: center;
+            }
+        }
+    }
+
+    button {
+        padding: .75em 2em;
+        border-radius: .25em;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        transition: .3s;
+        background: royalblue;
+
+        label {
+            font-family: 'Baloo 2', cursive;
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: $clr-white;
+        }
+
+        &:hover { background: darken(royalblue, 5%); }
+    }
+}

@@ -5,8 +5,8 @@ const EntryText = ({hSmall, hBig}: IItemsContainerText) => {
    return (
       <section className="entry-text">
 
-         <h2>Lorem ispum dolor</h2>
-         <h3>SIt amet coqeantur elit</h3>
+         <h2>{hBig}</h2>
+         <h3>{hSmall}</h3>
 
       </section>
    ) 

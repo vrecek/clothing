@@ -5,9 +5,9 @@ const FooterContact = () => {
       <article className="footer-contact">
 
          <p>918273645</p>
-         <p className="mail">mailshop@gmail.com</p>
+         <p className="mail">vrecek-ffci@outlook.com</p>
          <p className="location">23-349 Loremipsum 12</p>
-         <p className="country">Canada</p>
+         <p className="country">Poland</p>
 
       </article>
    )

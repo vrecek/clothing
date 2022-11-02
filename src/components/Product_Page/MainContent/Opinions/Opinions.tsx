@@ -3,9 +3,10 @@ import StarSumSection from './StarSumSection'
 import '../../../../css/Opinions.css'
 import Button from '../../../Common/Button'
 import DropDown from '../../../../functions/DropdownClass'
-import CommentForm from './Comments/CommentForm'
+import CommentForm from './Comments/Form/CommentForm'
+import { IOpinionsComponent } from '../../../../interfaces/ProductPageInterfaces'
 
-const Opinions = () => {
+const Opinions = ({rating, id}: IOpinionsComponent) => {
    const [dd] = React.useState<DropDown>(new DropDown())
 
    const toggleComments = (e: React.MouseEvent): void => {
@@ -22,8 +23,8 @@ const Opinions = () => {
    return (
       <section className="opinions">
 
-         <StarSumSection />
-         <CommentForm />
+         <StarSumSection rating={rating} />
+         <CommentForm productId={id} />
          <Button cname='toggler' action={toggleComments} text='Show opinions' />
 
       </section>

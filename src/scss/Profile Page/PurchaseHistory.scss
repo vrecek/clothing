@@ -1,0 +1,197 @@
+@import '../config';
+
+article.content-state.purchase-history {
+    position: relative;
+    
+    ul.filter-select {
+        width: 100%;
+        @include Flex(sb, c);
+        list-style: none;
+        margin-bottom: 5em;
+
+        li {
+            flex-grow: 1;
+            flex-basis: 0;
+            text-align: center;
+            cursor: pointer;
+            transition: .3s;
+            padding: .75em 0;
+            @include Clamp(.85, 3.5, 1);
+
+            &:not(:last-child) { border-right: 1px solid black; }
+
+            &.active {
+                background: royalblue;
+                pointer-events: none;
+                color: $clr-white;
+            }
+        }
+    }
+
+    section.error {
+        p {
+            color: crimson;
+            font-weight: 500;
+            font-size: .95rem;
+        }
+    }
+
+    section.empty {
+        p {
+            margin-top: 5em;
+            font-weight: 600;
+            color: #404040;
+            font-size: .95rem;
+        }
+
+        button {
+            padding: .75em 2.5em;
+            outline: 0;
+            border: 0;
+            background: royalblue;
+            cursor: pointer;
+            transition: .3s;
+            border-radius: .2em;
+            margin-top: 2em;
+
+            label {
+                color: $clr-white;
+                font-size: 1.05rem;
+                font-weight: 500;
+                font-family: 'Baloo 2', cursive;
+            }
+
+            &:hover { background: darken(royalblue, 5%); }
+        }
+    }
+
+    section.container {
+        article.order {
+            width: 100%;
+            background: rgb(252, 252, 252);
+            padding: .5em;
+            border-radius: .15em;
+            &:not(:last-child) { margin-bottom: 2em; }
+
+            section.info {
+                @include Flex(sb);
+                width: 100%;
+                margin-bottom: 2em;
+
+                div {
+                    flex-grow: 1;
+                    flex-basis: 0;
+                    text-align: center;
+
+                    p {
+                        &:not(:last-child) { margin-bottom: .5em; }
+                        @include Clamp(.85, 3, .9);
+
+                        span {
+                            &.name {
+                                font-weight: 700;
+                                margin-right: .25em;
+                            }
+                        }
+
+                        &.false span.value { color: red; }
+                        &.true span.value { color: green; }
+                    }
+                }
+            }
+
+            p.products-dd {
+                @include Flex(none, c);
+                font-family: 'Baloo 2', cursive;
+                color: #404040;
+                font-weight: 500;
+                cursor: pointer;
+
+                span {
+                    pointer-events: none;
+                    @include Rectangle(20px);
+                    transition: .3s;
+                    margin-left: .1em;
+
+                    svg { @include FullSize; }
+                }
+            }
+
+            section.products {
+                transition: .3s;
+                overflow: hidden;
+                display: none;
+                height: 0;
+
+                article.item {
+                    @include Flex(sb);
+                    &:not(:last-child) { margin-bottom: .5em; }
+
+                    figure {
+                        width: 10%;
+                        aspect-ratio: 1;
+
+                        img {
+                            @include FullSize;
+                            object-fit: cover;
+                        }
+                    }
+
+                    div {
+                        &.text {
+                            width: 35%;
+
+                            p {
+                                &.company {
+                                    @include Clamp(.85, 3, .9);
+                                    margin-bottom: .2em;
+                                }
+
+                                &.name {
+                                    font-weight: 500;
+                                    color: #404040;
+                                    @include Clamp(.9, 3, 1);
+                                }
+                            }
+                        }
+
+                        &.misc {
+                            width: 20%;
+
+                            p {
+                                @include Flex(sb, c);
+                                @include Clamp(.85, 3, .9);
+
+                                &:not(span) {
+                                    font-weight: 600;
+                                }
+
+                                &:first-child { margin-bottom: .25em; }
+                            }
+                        }
+
+                        &.price {
+                            width: 20%;
+
+                            p {
+                                font-weight: 700;
+                                font-family: 'Baloo 2', cursive;
+                                font-size: 1.1rem;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media (max-width: 480px) {
+                section.info {
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    div { text-align: left; }
+                }
+            }
+        }
+    }
+}

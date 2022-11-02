@@ -1,11 +1,10 @@
 import React from 'react'
 
-const DropdownInfo = () => {
+const DropdownInfo = ({text}: {text: string}) => {
    return (
       <div className='info'>
 
-         <h5>Material: </h5>
-         <p>Loremipsum</p>
+         <p>{text}</p>
 
       </div>
    )

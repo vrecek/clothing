@@ -1,14 +1,24 @@
 import React from 'react'
+import { ISizeList } from '../../../../interfaces/ProductPageInterfaces'
 
-const SizeList = () => {
+const SizeList = ({sizes, setSize, dd}: ISizeList) => {
+   const changeSize = (size: string): void => {
+      dd.switchActive()
+      dd.shrinkMenu(.3)
+
+      setSize(size)
+   }
+
    return (
       <ul>
          
-         <li>33</li>
-         <li>34</li>
-         <li>35</li>
-         <li>367</li>
-         <li>39</li>
+         {
+            sizes.map((x, i) => (
+               <li onClick={() => changeSize(x)} key={i}>
+                  {x}
+               </li>
+            ))
+         }
 
       </ul>
    )

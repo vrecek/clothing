@@ -99,3 +99,33 @@ $navHeight: 60px;
       }
    }
 }
+
+@mixin PriceStyle2 {
+   @include Flex(c, c);
+
+   h4,
+   h5 {
+      font-weight: 400;
+      @include Clamp(.85, 3, 1);
+   }
+
+   h6 { display: none; }
+
+   &.active { 
+      flex-direction: column-reverse; 
+
+      h4 {
+         position: relative;
+         @include Clamp(.85, 3, .95);
+
+         &::before {
+            content: '';
+            @include Absolute(50%, 50%);
+            translate: -50% -50%;
+            width: 120%;
+            height: 2px;
+            background: black;
+         }
+      }
+   }
+}

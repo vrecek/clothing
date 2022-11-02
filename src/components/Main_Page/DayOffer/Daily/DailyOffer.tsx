@@ -1,24 +1,25 @@
 import React from 'react'
 import { BiRightArrowAlt } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
+import { IDailyOffer } from '../../../../interfaces/HomepageInterfaces'
 import FigureImage from '../../../Common/FigureImage'
 import Price from '../../ItemsContainer/Price'
 import ButtonContainer from './ButtonContainer'
 
-const DailyOffer = () => {
+const DailyOffer = ({name, image, price, discountPercent, _id}: IDailyOffer) => {
    return (
       <section className="daily">
 
          <h1>Daily offer</h1>
 
-         <FigureImage source='https://hibou.pl/pol_pl_T-shirt-Meski-Bialy-248_1.png' altTxt='Offer' />
+         <FigureImage source={image} altTxt='Offer' />
 
-         <h3 className='name'>Product name loremips</h3>
-         <Price price={999} discount={20} />
+         <h3 className='name'>{name}</h3>
+         <Price price={price} discount={discountPercent} />
 
-         <ButtonContainer />
+         <ButtonContainer id={_id} />
 
-         <Link to='/'>
+         <Link to='/search/all/sale'>
             More discounts
             <span><BiRightArrowAlt /></span>
          </Link>

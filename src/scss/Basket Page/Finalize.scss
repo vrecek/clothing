@@ -3,7 +3,8 @@
 main.finalize-order {
    min-height: calc(100vh - $navHeight);
    padding: 4em 0;
-   @include Center(55%);
+   max-width: 95%;
+   @include Center(950px);
 
    h1.header {
       font-weight: 600;
@@ -14,7 +15,7 @@ main.finalize-order {
    p.info {
       text-transform: uppercase;
       font-family: 'Baloo 2', cursive;
-      font-size: 1rem;
+      @include Clamp(.85, 4, 1);
       font-weight: 600;
       margin-bottom: .25em;
    }
@@ -28,9 +29,11 @@ main.finalize-order {
 
          figure {
             width: 15%;
+            aspect-ratio: 1;
 
             img {
-               width: 100%;
+               @include FullSize;
+               object-fit: cover;   
             }
          }
 
@@ -44,24 +47,20 @@ main.finalize-order {
                   color: #505050;
                   font-weight: 600;
                   margin-bottom: .5em;
-                  font-size: .9rem;
+                  @include Clamp(.8, 3.5, .9);
                }
 
                &.name {
                   font-weight: 500;
                   font-family: 'Baloo 2', cursive;
-                  font-size: 1.05rem;
+                  @include Clamp(.85, 3.5, 1.05);
                }
             }
          }
 
          div.price {
             width: 15%;
-            @include Flex(c, c);
-            
-            p {
-               font-weight: 500;
-            }
+            @include PriceStyle2;
          }
 
          div.quantity {
@@ -80,8 +79,17 @@ main.finalize-order {
          background: royalblue;
          cursor: pointer;
          transition: .3s;
-         margin-top: 5em;
+         margin-top: 3em;
          border-radius: .2em;
+         position: relative;
+
+         h6 {
+            @include Absolute(0, 110%);
+            width: max-content;
+            font-size: .9rem;
+            font-weight: 500;
+            color: crimson;
+         }
 
          label {
             color: $clr-white;
@@ -105,14 +113,18 @@ main.finalize-order {
             p {
                padding: 1.25em 2em;
                width: 50%;
+               font-size: .95rem;
 
                &.what {
-                  font-weight: 600;
+                  font-weight: 500;
                }
 
                &.value {
                   text-align: right;
-                  color: green;
+
+                  &:not(.true) {
+                     color: green;
+                  }
                }
             }
          }
@@ -129,6 +141,7 @@ main.finalize-order {
       div.payment {
          cursor: pointer;
          width: 25%;
+         min-width: 90px;
          box-shadow: 0 0 1px #808080;
          padding: 1em;
          transition: .3s;
@@ -147,7 +160,7 @@ main.finalize-order {
          }
 
          p {
-            font-size: 1.25rem;
+            @include Clamp(.85, 3.5, 1.25);
             font-weight: 500;
             margin-top: .5em;
             text-align: center;
@@ -183,16 +196,18 @@ main.finalize-order {
 
             input {
                cursor: pointer;
-               @include Rectangle(20px);
+               @include Rectangle(clamp(15px, 5vw, 20px));
             }
 
             p {
                &.price {
                   font-weight: 500;
+                  @include Clamp(.85, 4, 1);
                }
 
                &.name {
                   font-weight: 600;
+                  @include Clamp(.85, 4, 1);
                   font-family: 'Baloo 2', cursive;
                }
             }
@@ -235,7 +250,7 @@ main.finalize-order {
          cursor: pointer;
 
          p {
-            font-size: .9rem;
+            @include Clamp(.85, 4, .9);
             pointer-events: none;
          }
 

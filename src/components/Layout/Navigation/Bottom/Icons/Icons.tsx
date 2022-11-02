@@ -3,7 +3,6 @@ import {BiUser, BiBasket} from 'react-icons/bi'
 import {AiOutlineHeart} from 'react-icons/ai'
 import ItemComponent from './ItemComponent'
 import UserMenu from './UserIcon/UserMenu'
-import BasketMenu from './BasketIcon/BasketMenu'
 
 const Icons = () => {
    return (
@@ -12,7 +11,7 @@ const Icons = () => {
          <ul>
 
             <ItemComponent hiddenComponent={<></>} icon={<AiOutlineHeart />} />
-            <ItemComponent hiddenComponent={<BasketMenu />} icon={<BiBasket />} />
+            <ItemComponent url='/basket' hiddenComponent={<></>} icon={<BiBasket />} />
             <ItemComponent hiddenComponent={<UserMenu />} icon={<BiUser />} />
 
          </ul>

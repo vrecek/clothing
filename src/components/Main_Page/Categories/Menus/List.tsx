@@ -19,7 +19,6 @@ const List = ({lists}: {lists: ICategoryList[][]}) => {
                      x.map((y, j) => (
                         <li onClick={() => redirectFunc(y.url)} key={j}>
 
-                           { y?.icon && <span>{y.icon}</span> }
                            <p>{y.name}</p>
 
                         </li>

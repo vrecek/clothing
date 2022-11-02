@@ -1,3 +1,3 @@
-# Fullstack e-commence clothing shop
-Only frontend repository, no backend included<br>
-It has all necessary functionalities
+# Online fullstack clothing shop
+Tech used: Node JS, React, Typescript, SCSS <br>
+Deployed: Heroku

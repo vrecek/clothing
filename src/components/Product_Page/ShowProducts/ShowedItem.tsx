@@ -1,16 +1,20 @@
 import React from 'react'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
+import { IShowedItem } from '../../../interfaces/ProductPageInterfaces'
 import FigureImage from '../../Common/FigureImage'
 import Price from '../../Main_Page/ItemsContainer/Price'
 
-const ShowedItem = () => {
+const ShowedItem = ({mainImage, discountPercent, name, price, _id}: IShowedItem) => {
+   const n: NavigateFunction = useNavigate()
+   
    return (
-      <article className="item">
+      <article onClick={() => n(`/product/${_id}`)} className="item">
 
-         <FigureImage source='https://specials-images.forbesimg.com/imageserve/625b119e0ef820de3d2d2452/PUMA-PROADAPT-ALPHACAT-Men-s-Golf-Shoes/960x0.jpg?cropX1=0&cropX2=767&cropY1=0&cropY2=767' altTxt='Product' />
+         <FigureImage source={mainImage.url} altTxt='Product' />
 
-         <p>Lorem ipsum dolorsit</p>
+         <p>{name}</p>
 
-         <Price price={85} discount={25} />
+         <Price price={price} discount={discountPercent} />
 
       </article>
    )

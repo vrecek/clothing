@@ -4,8 +4,9 @@ import paypal from '../../../../images/paypal.png'
 import creditcard from '../../../../images/creditcard.png'
 import advancepay from '../../../../images/advancepay.png'
 import PaymentOption from './PaymentOption'
+import { ISetState } from '../../../../interfaces/BasketInterfaces'
 
-const PaymentSelect = () => {
+const PaymentSelect = ({setState}: ISetState) => {
    return (
       <section className="payment-select">
 
@@ -13,9 +14,9 @@ const PaymentSelect = () => {
 
          <div className="wrap">
 
-            <PaymentOption source={paypal} text='PayPal' />
-            <PaymentOption source={creditcard} text='Credit card' />
-            <PaymentOption source={advancepay} text='Pay in advance' />
+            <PaymentOption setState={setState} source={paypal} text='PayPal' />
+            <PaymentOption setState={setState} source={creditcard} text='Credit card' />
+            <PaymentOption setState={setState} source={advancepay} text='Pay in advance' />
 
          </div>
 

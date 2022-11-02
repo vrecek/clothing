@@ -27,7 +27,7 @@ const SearchInput = () => {
    return (
       <input 
          placeholder='Search products...' 
-         onKeyDown={(e) => NavigateClass.searchNavigateEnter(e, n, '/searchbar/[value]')} 
+         onKeyDown={(e) => NavigateClass.searchNavigateEnter(e, n, '/search/bar/[value]')} 
          onChange={keyDown} 
          type="text" 
          spellCheck='false' 

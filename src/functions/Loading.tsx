@@ -126,11 +126,15 @@ export class LoadingCss extends Loading {
          backgroundClr: dotStyles?.backgroundClr ?? 'rgba(30, 30, 30, .9)',
          clr1: dotStyles?.clr1 ?? 'royalblue',
          position: dotStyles?.position ?? 'fixed',
-         width: dotStyles?.width ?? '25px',
-         height: dotStyles?.height ?? '25px',
+         width: dotStyles?.width ?? '',
+         height: dotStyles?.height ?? '',
       }
 
-      const { backgroundClr, clr1, position, width, height } = appliedStyles
+      const { backgroundClr, clr1, position } = appliedStyles
+      let { width, height } = appliedStyles
+      
+      if(!width) width = position === 'fixed' ? '25px' : '15px'
+      if(!height) height = position === 'fixed' ? '25px' : '15px'
 
       Object.assign(this.div.style, {
          position: position === 'fixed' ? 'fixed' : 'absolute',

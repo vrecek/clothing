@@ -1,7 +1,7 @@
 @import '../config';
 
 footer.layout-footer {
-   padding: 4em;
+   padding: 4em clamp(1em, 6vw, 4em);
    background: rgb(34, 44, 58);
    color: $clr-white;
    padding-bottom: 1em;
@@ -11,7 +11,7 @@ footer.layout-footer {
       
       p {
          font-family: 'Baloo 2', cursive;
-         font-size: 1rem;
+         font-size: .95rem;
       }
    }
 
@@ -26,8 +26,14 @@ footer.layout-footer {
       margin-bottom: 5em;
       @include Flex(sb, none);
 
+      div.list-wrap {
+         width: 50%;
+         @include Flex(sb);
+      }
+
       section.right {
          width: 25%;
+         min-width: max-content;
 
          div.icons {
             @include Flex(fe, c);
@@ -47,6 +53,7 @@ footer.layout-footer {
          
          article.footer-contact {
             width: 100%;
+            min-width: max-content;
             background: rgb(52, 67, 90);
             padding: 1.5em;
             @include Flex(fe, fe);
@@ -55,7 +62,7 @@ footer.layout-footer {
             color: rgb(134, 146, 162);
 
             p {
-               font-size: .9rem;
+               @include Clamp(.85, 4, .9);
                letter-spacing: 1px;
                &:not(:last-child) { margin-bottom: .5em; }
 
@@ -70,6 +77,8 @@ footer.layout-footer {
          list-style: none;
 
          li {
+            @include Clamp(.85, 4, 1);
+
             &:first-child {
                font-weight: 800;
                margin-bottom: 1.5em;
@@ -86,6 +95,21 @@ footer.layout-footer {
                   color: rgb(87, 114, 151);
                }
             }
+         }
+      }
+   }
+
+   @media (max-width: 768px) {
+      section.wrap {
+         flex-direction: column;
+
+         section.right {
+            width: 100%;
+         }
+
+         div.list-wrap {
+            width: 100%;
+            margin-bottom: 2em;
          }
       }
    }

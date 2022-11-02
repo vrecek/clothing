@@ -3,6 +3,7 @@
 section.opinions {
    form.write-comment {
       margin: 2em 0 3em 0;
+      position: relative;
 
       h6 {
          font-weight: 700;
@@ -10,10 +11,73 @@ section.opinions {
          font-size: .95rem;
       }
 
+      h5.result {
+         position: absolute;
+         left: 0;
+         top: 102%;
+
+      }
+
       div.wrap {
          @include Flex(sb, none);
 
-         div {
+         div.tas {
+            position: relative;
+            width: 80%;
+            @include Flex(sb, none);
+            flex-direction: column;
+
+            textarea,
+            input {
+               width: 100%;
+               outline: 0;
+               border-radius: .15em;
+               border: 1px solid #303030;
+               font-weight: 600;
+               font-family: 'Sora', sans-serif;
+
+               &::placeholder {
+                  font-size: .7rem;
+                  opacity: .7;
+               }
+            }
+
+            input {
+               padding: .5em .75em;
+               margin-bottom: .2em;
+            }
+
+            div.rating-form {
+               position: absolute;
+               right: 5px;
+               bottom: 5px;
+               z-index: 2;
+               display: flex;
+
+               span {
+                  @include Rectangle(25px);
+                  cursor: pointer;
+                  color: grey;
+                  transition: .1s;
+                  margin-right: .1em;
+
+                  svg { @include FullSize; pointer-events: none; }
+
+                  &.active {
+                     color: gold;
+                  }
+               }
+            }
+
+            textarea {
+               resize: none;
+               height: 200px;
+               padding: .75em;
+            }
+
+         }
+
+         div.aab {
             @include Flex(sb, none);
             flex-direction: column;
             width: 18%;
@@ -30,7 +94,7 @@ section.opinions {
 
                label {
                   font-family: 'Baloo 2', cursive;
-                  font-size: 1rem;
+                  @include Clamp(.85, 4, 1);
                   font-weight: 500;
                   color: $clr-white;
                }
@@ -56,17 +120,6 @@ section.opinions {
             }
          }
 
-         textarea {
-            width: 80%;
-            resize: none;
-            height: 200px;
-            outline: 0;
-            border-radius: .15em;
-            border: 1px solid #303030;
-            padding: .75em;
-            font-weight: 600;
-            font-family: 'Sora', sans-serif;
-         }
       }
    }
 
@@ -83,7 +136,7 @@ section.opinions {
       label {
          font-family: 'Baloo 2', cursive;
          font-weight: 500;
-         font-size: 1.1rem;
+         @include Clamp(.9, 5, 1.1);
       }
 
       &:hover {

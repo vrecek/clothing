@@ -1,0 +1,49 @@
+@import '../config';
+
+main.error-page {
+    height: calc(100vh - $navHeight);
+    @include Flex(c, c);
+    padding: 2em;
+    flex-direction: column;
+
+    h1 {
+        @include Clamp(5, 17, 8);
+        font-family: 'Baloo 2', cursive;
+        font-weight: 800;
+        color: #404040;
+    }
+
+    h2.info {
+        font-weight: 600;
+    }
+
+    p {
+        width: 35%;
+        text-align: center;
+        margin: 1em 0;
+
+        @media (max-width: 480px) {
+            width: 80%;
+        }
+    }
+
+    button {
+        border-radius: 1.5em;
+        background: royalblue;
+        outline: 0;
+        border: 0;
+        padding: .75em 2em;
+        cursor: pointer;
+        transition: .3s;
+
+        label {
+            font-family: 'Baloo 2', cursive;
+            color: $clr-white;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        &:hover { background: darken(royalblue, 5%); }
+    }
+}
+

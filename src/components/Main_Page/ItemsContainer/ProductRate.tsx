@@ -1,19 +1,20 @@
 import React from 'react'
 import { AiFillStar } from 'react-icons/ai'
+import { IProductRate } from '../../../interfaces/CommonInterfaces'
 
-const ProductRate = ({rate}: {rate: number}) => {
+const ProductRate = ({starsSum, totalVotes}: IProductRate) => {
    return (
       <div className="rating">
 
          {
             [...Array(5)].map((x, i) => (
-               <span key={i} className={`star ${i < rate ? 'active' : ''}`}>
+               <span key={i} className={`star ${i < starsSum ? 'active' : ''}`}>
                   <AiFillStar />
                </span>
             ))
          }
 
-         <p className='rate-count'>(99)</p>
+         <p className='rate-count'>({totalVotes})</p>
 
       </div>
    )

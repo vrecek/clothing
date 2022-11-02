@@ -2,7 +2,8 @@
 
 main.basket-page {
    min-height: 100vh;
-   padding: 4em 2em 2em 2em;
+   padding: 4em clamp(.5em, 4vw, 2em);
+   padding-bottom: 2em;
    @include Flex(sb);
 
    section {
@@ -65,7 +66,7 @@ main.basket-page {
                }
 
                p {
-                  font-size: 1.05rem;
+                  @include Clamp(.9, 3, 1.05);
                   font-family: 'Baloo 2', cursive;
 
                   &.what {
@@ -102,6 +103,30 @@ main.basket-page {
       &.items {
          width: 65%;
 
+         p.stock-info {
+            margin-bottom: 1.5em;
+            @include Flex(none, c);
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.05rem;
+            color: #404040;
+
+            span {
+               margin-right: .25em;
+               color: red;
+               @include Rectangle(25px);
+
+               svg { @include FullSize; }
+            }
+         }
+
+         p.empty {
+            margin-top: 2em;
+            @include Clamp(1.5, 5, 2);
+            color: #505050;
+            font-weight: 500;
+            text-align: center;
+         }
+
          h1 {
             font-weight: 700;
             margin-bottom: .5em;
@@ -112,6 +137,12 @@ main.basket-page {
             padding: 1em 0;
             @include Flex(sb);
 
+            div.price {
+               width: 12%;
+               text-align: center;
+               @include PriceStyle2;
+            }
+
             section {
                &.text {
                   width: 40%;
@@ -119,7 +150,7 @@ main.basket-page {
                   p {
                      &.company {
                         color: rgb(60, 60, 60);
-                        font-size: .9rem;
+                        @include Clamp(.85, 4, .9);
                         font-weight: 500;
                         margin-bottom: .5em;
                      }
@@ -127,18 +158,8 @@ main.basket-page {
                      &.name {
                         font-family: 'Baloo 2', cursive;
                         font-weight: 700;
-                        font-size: 1.25rem;
+                        @include Clamp(.9, 4, 1.25);
                      }
-                  }
-               }
-
-               &.price {
-                  width: 10%;
-                  @include Flex(c, c);
-                  
-                  p {
-                     font-weight: 400;
-                     font-size: 1rem;
                   }
                }
 
@@ -153,6 +174,7 @@ main.basket-page {
 
                      svg {
                         @include Rectangle(25px);
+                        pointer-events: none;
                      }
                   }
 
@@ -161,18 +183,35 @@ main.basket-page {
                      padding: 1em 0;
                      text-align: center;
                      font-weight: 500;
-                     font-size: 1.1rem;
+                     @include Clamp(.85, 3, 1.1);
                   }
                }
             }
 
             figure {
                width: 15%;
+               aspect-ratio: 1;
+               flex-shrink: 0;
 
                img {
-                  width: 100%;
+                  @include FullSize;
+                  object-fit: cover;
                }
             }
+         }
+      }
+   }
+
+   @media (max-width: 768px) {
+      flex-direction: column;
+
+      section {
+         &.summary {
+            width: 100%;
+         }
+
+         &.items {
+            width: 100%;
          }
       }
    }

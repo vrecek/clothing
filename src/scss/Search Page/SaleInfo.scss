@@ -2,21 +2,42 @@
 
 article.sale-info {
    @include Flex(sb);
+   position: relative;
+
+   span.icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      translate: -50% -50%;
+      height: 80%;
+      aspect-ratio: 1;
+      color: #2d2d2d;
+
+      svg { @include FullSize; }
+   }
 
    section {
       background: #303030;
       color: $clr-white;
-      padding: 4em;
+      padding: 4em clamp(1em, 5vw, 4em);
+
+      h1,
+      p.para,
+      div.refresh,
+      button {
+         position: relative;
+         z-index: 9;
+      }
 
       h1 {
          font-weight: 800;
-         font-size: 3rem;
+         @include Clamp(2, 7, 3);
          color: #707070;
       }
 
       p.para {
          margin-bottom: 1.5em;
-         font-size: 1.25rem;
+         @include Clamp(1, 4, 1.25);
          color: #d3d3d3;
          font-family: 'Baloo 2', cursive;
          font-weight: 600;
@@ -24,7 +45,6 @@ article.sale-info {
 
       &.left {
          width: 60%;
-         position: relative;
 
          div.refresh {
             div {
@@ -44,18 +64,6 @@ article.sale-info {
                   }
                }
             }
-         }
-
-         span.icon {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            translate: 0 -50%;
-            height: 80%;
-            aspect-ratio: 1;
-            color: #2d2d2d;
-
-            svg { @include FullSize; }
          }
       }
 
@@ -81,6 +89,15 @@ article.sale-info {
             &:hover {
                background: darken(rgb(249, 122, 19), 5%);
             }
+         }
+      }
+   }
+
+   @media (max-width: 1000px) {
+      section {
+         &.left { display: none; }
+         &.right {
+            width: 100%;
          }
       }
    }

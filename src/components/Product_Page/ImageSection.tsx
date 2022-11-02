@@ -1,14 +1,15 @@
 import React from 'react'
+import { IMainImage } from '../../interfaces/ProductPageInterfaces'
 import FigureImage from '../Common/FigureImage'
 import ImageSelect from './ImageSelect'
 
-const ImageSection = () => {
+const ImageSection = ({image, additionalImages}: IMainImage) => {
    return (
       <section className="image-container">
 
-         <FigureImage source='https://specials-images.forbesimg.com/imageserve/625b119e0ef820de3d2d2452/PUMA-PROADAPT-ALPHACAT-Men-s-Golf-Shoes/960x0.jpg?cropX1=0&cropX2=767&cropY1=0&cropY2=767' cname='main' altTxt='Image' />
+         <FigureImage source={image} cname='main' altTxt='Image' />
 
-         <ImageSelect />
+         <ImageSelect image={image} additionalImages={additionalImages} />
 
       </section>
    )

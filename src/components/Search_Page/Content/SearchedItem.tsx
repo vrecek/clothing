@@ -1,32 +1,31 @@
 import React from 'react'
-import { TbTruckDelivery } from 'react-icons/tb'
-import Button from '../../Common/Button'
 import FigureImage from '../../Common/FigureImage'
 import Price from '../../Main_Page/ItemsContainer/Price'
 import ProductRate from '../../Main_Page/ItemsContainer/ProductRate'
-import {FaShoppingBasket} from 'react-icons/fa'
 import ListInfo from './ListInfo'
 import ButtonsWrap from './ButtonsWrap'
+import { ISearchedItem } from '../../../interfaces/SearchpageInterfaces'
 
-const SearchedItem = () => {
+const SearchedItem = ({image, name, price, details, discountPercent, starsSum, totalVotes, _id}: ISearchedItem) => {
+   
    return (
       <article className="item">
 
-         <FigureImage source='https://specials-images.forbesimg.com/imageserve/625b119e0ef820de3d2d2452/PUMA-PROADAPT-ALPHACAT-Men-s-Golf-Shoes/960x0.jpg?cropX1=0&cropX2=767&cropY1=0&cropY2=767' altTxt='Product' />
+         <FigureImage source={image} altTxt='Product' />
 
          <section className="first">
 
-            <h2>Prodct name loremispm</h2>
-            <ProductRate rate={3} />
-            <ListInfo />
+            <h2>{name}</h2>
+            <ProductRate starsSum={starsSum} totalVotes={totalVotes} />
+            <ListInfo details={details} />
 
          </section>
 
          <section className="second">
 
-            <Price price={48} discount={10} />
+            <Price price={price} discount={discountPercent} />
 
-            <ButtonsWrap />
+            <ButtonsWrap id={_id} />
 
          </section>
 

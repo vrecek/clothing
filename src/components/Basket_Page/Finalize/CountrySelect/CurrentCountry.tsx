@@ -1,10 +1,8 @@
 import React from 'react'
 import { MdArrowDropDown } from 'react-icons/md'
-import DropDown from '../../../../functions/DropdownClass'
+import { ICurrentCountry } from '../../../../interfaces/BasketInterfaces'
 
-const CurrentCountry = () => {
-   const [dd] = React.useState<DropDown>(new DropDown())
-
+const CurrentCountry = ({dd}: ICurrentCountry) => {
    const expandList = (e: React.MouseEvent): void => {
       const t: HTMLElement = e.target as HTMLElement
       const list = t.parentElement!.children[2] as HTMLElement

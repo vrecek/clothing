@@ -4,21 +4,31 @@ import DropDown from '../../../../functions/DropdownClass'
 import { IFilterDropdown, IFilterList } from '../../../../interfaces/SearchpageInterfaces'
 import FilterDefaultValue from './FilterDefaultValue'
 
-const FilterDropdown = ({defaultVal, list, pCname}: IFilterDropdown) => {
+const FilterDropdown = ({defaultVal, list, pCname, filtersState}: IFilterDropdown) => {
    const [dd] = React.useState<DropDown>(new DropDown())
+
+   const deleteCallback = (): void => {
+      filtersState((curr: any) => {
+         curr[pCname] = null
+
+         return {...curr}
+      })
+   }
 
    const changeFilter = (e: React.MouseEvent, obj: IFilterList): void => {
       const t: HTMLElement = e.target as HTMLElement
       const p: HTMLElement = t.parentElement!.parentElement!.children[0].children[0] as HTMLElement
 
-      p.textContent = obj.str
+      const {str, status} = obj
+      p.textContent = str
       
-      const activeCont = t.parentElement!.parentElement!.parentElement!.parentElement!.parentElement!.parentElement!.children[1] as HTMLElement
+      const activeCont = t.parentElement!.parentElement!.parentElement!.parentElement!.parentElement!.parentElement!.children[0] as HTMLElement
       addFilter(
          {
             activeCont, 
             id: pCname,
-            filterText: obj.str, 
+            filterText: str,
+            deleteCb: deleteCallback 
          },
          {
             defaultVal,
@@ -29,6 +39,12 @@ const FilterDropdown = ({defaultVal, list, pCname}: IFilterDropdown) => {
 
       dd.switchActive()
       dd.shrinkMenu(.3)
+
+      filtersState((curr: any) => {
+         curr[pCname] = status
+
+         return {...curr}
+      })
    }
 
    return (

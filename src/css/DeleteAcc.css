@@ -1,7 +1,5 @@
-article.delete-account h1 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 2em;
+article.delete-account {
+  position: relative;
 }
 article.delete-account p.warn {
   color: crimson;

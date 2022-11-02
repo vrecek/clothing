@@ -4,8 +4,8 @@ const FooterBar = () => {
    return (
       <div className="bar">
 
-         <p>Lorem ipsum dolorsit amet</p>
-         <p>Conqesatur elit</p>
+         <p>Online shop</p>
+         <p>2022 All rights reserved</p>
 
       </div>
    )

@@ -1,6 +1,8 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { NavigateFunction, useLocation, useNavigate } from 'react-router-dom'
 import '../../../css/Finalize.css'
+import { DefaultOrderInfo, IOrderInfoState } from '../../../interfaces/BasketInterfaces'
+import { IBasketProduct } from '../../../interfaces/ProductType'
 import LayoutWrap from '../../Layout/LayoutWrap'
 import Conclusion from './Conclusion/Conclusion'
 import CountrySelect from './CountrySelect/CountrySelect'
@@ -9,9 +11,15 @@ import InfoHeader from './InfoHeader'
 import PaymentSelect from './PaymentSelect/PaymentSelect'
 
 const FINALIZE_ORDER = () => {
-   const l = useLocation()
-   console.log(l);
-
+   const [orderInfo, setOrderInfo] = React.useState<IOrderInfoState>(DefaultOrderInfo)
+   const n: NavigateFunction = useNavigate()
+   const products: IBasketProduct[] = useLocation().state?.products as IBasketProduct[]
+   
+   React.useEffect(() => {
+      if(!products) n('/', { replace: true })
+   }, [])
+   
+   if(products)
    return (
       <LayoutWrap>
 
@@ -19,20 +27,22 @@ const FINALIZE_ORDER = () => {
 
             <InfoHeader>Finalize your order</InfoHeader>
 
-            <CountrySelect />
+            <CountrySelect setState={setOrderInfo} />
 
-            <DeliverySelect />
+            <DeliverySelect setState={setOrderInfo} />
 
-            <PaymentSelect />
+            <PaymentSelect setState={setOrderInfo} />
 
             <InfoHeader>Conclusion</InfoHeader>
 
-            <Conclusion />
+            <Conclusion orderInfo={orderInfo} products={products} />
 
          </main>
 
       </LayoutWrap>
    )
+
+   return <></>
 }
 
 export default FINALIZE_ORDER

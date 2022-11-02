@@ -7,7 +7,7 @@ const NotLogged = () => {
    const n: NavigateFunction = useNavigate()
 
    return (
-      <section className="not-logged">
+      <section className="not-logged usr">
 
          <Button action={() => n('/credentials/register')} text='Join us' cname='join' />
 

@@ -1,9 +1,10 @@
 import React from 'react'
 import { MdArrowDropDown } from 'react-icons/md'
 import DropDown from '../../../../functions/DropdownClass'
+import { IDropdownItem } from '../../../../interfaces/ProductPageInterfaces'
 import DropdownInfo from './DropdownInfo'
 
-const DropdownItem = () => {
+const DropdownItem = ({title, content}: IDropdownItem) => {
    const [dd] = React.useState<DropDown>(new DropDown())
 
    const expandMenu = (e: React.MouseEvent): void => {
@@ -19,19 +20,22 @@ const DropdownItem = () => {
 
          <div onClick={expandMenu} className="header">
 
-            <p>Product info</p>
+            <p>{title}</p>
             <span><MdArrowDropDown /></span>
 
          </div>
 
-         <div className="inner">
-            
-            {/* <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, officia deleniti qui rem earum quisquam. Illo commodi at voluptatem a! Culpa molestiae perferendis magnam, commodi dolorum fugit nobis unde ratione.</p> */}
+         <div className='inner'>
 
-            <DropdownInfo />
-            <DropdownInfo />
-            <DropdownInfo />
-            <DropdownInfo />
+            {
+               typeof content === 'string'
+               ?
+               <p>{content}</p>
+               :
+               content.map((x, i) => (
+                  <DropdownInfo key={i} text={x} />
+               ))
+            }
 
          </div>
 

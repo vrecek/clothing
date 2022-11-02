@@ -1,17 +1,21 @@
 import React from 'react'
+import DropDown from '../../../../functions/DropdownClass'
+import { ISetState } from '../../../../interfaces/BasketInterfaces'
 import InfoPara from '../InfoPara'
 import CountryList from './CountryList'
 import CurrentCountry from './CurrentCountry'
 
-const CountrySelect = () => {
+const CountrySelect = ({setState}: ISetState) => {
+   const [dd] = React.useState<DropDown>(new DropDown())
+
    return (
       <section className="country-select">
 
          <InfoPara>Select your country</InfoPara>
 
-         <CurrentCountry />
+         <CurrentCountry dd={dd} />
 
-         <CountryList />
+         <CountryList dd={dd} setState={setState} />
 
       </section>
    )

@@ -1,0 +1,142 @@
+@import '../config';
+
+main.admin-page {
+   @include Flex(sb);
+   background: rgb(12, 21, 63);
+   color: $clr-white;
+
+   h1.fetch-result {
+      font-size: 1rem;
+      border-top: 1px solid rgb(230, 230, 230);
+      padding-top: .5em;
+      width: max-content;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: rgb(230, 230, 230);
+      @include Flex(none, c);
+
+      span {
+         margin-right: .5em;
+         @include Rectangle(25px);
+
+         svg { @include FullSize; }
+      }
+   }
+
+   div.header-text {
+      margin-bottom: 3em;
+      
+      h1 {
+         font-weight: 700;
+         margin-bottom: .1em;
+         font-size: 2rem;
+         text-transform: uppercase;
+      }
+
+      h2 {
+         font-size: 1rem;
+         font-weight: 500;
+         color: rgb(210, 210, 210);
+      }
+   }
+
+   aside.menu {
+      background: rgb(40, 50, 75);
+      width: 20%;
+      height: 100vh;
+      padding: 1.5em;
+      position: sticky;
+      top: 0;
+
+      span.home {
+         @include Rectangle(30px);
+         cursor: pointer;
+
+         svg { @include FullSize; }
+      }
+
+      ul.options {
+         list-style: none;
+         @include Center(90%);
+
+         li {
+            &.option {
+               @include Flex(sb, c);
+               padding: .75em;
+               transition: .3s;
+               cursor: pointer;
+
+               span {
+                  @include Rectangle(25px);
+                  transition: .3s;
+                  pointer-events: none;
+
+                  svg { @include FullSize; }
+               }
+
+               p {
+                  font-size: .95rem;
+                  pointer-events: none;
+               }
+
+               &:hover {
+                  span { scale: 1.1 }
+                  background: rgb(45, 57, 85);
+               }
+
+               &.active {
+                  pointer-events: none;
+                  background: rgb(50, 63, 92);
+               }
+            }
+
+            &.info {
+               text-transform: uppercase;
+               color: rgb(150, 150, 150);
+               font-weight: 500;
+               margin-bottom: .1em;
+               font-family: 'Baloo 2', cursive;
+               font-size: .9rem;
+               margin-top: 2em;
+            }
+         }
+      }
+
+      section.user {
+         @include Flex(c, c);
+         flex-direction: column;
+         margin-bottom: 2em;
+
+         p {
+            &.name {
+               font-weight: 600;
+               font-size: 1.5rem;
+            }
+
+            &.role {
+               font-size: 1rem;
+               font-weight: 400;
+               color: rgb(170, 170, 170);
+            }
+         }
+
+         figure {
+            @include Center(50%);
+            margin-bottom: .25em;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+               @include FullSize;
+               object-fit: cover;
+            }
+         }
+      }
+   }
+
+   section.right {
+      width: 80%;
+      padding: 2em;
+   }
+}

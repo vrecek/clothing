@@ -2,7 +2,7 @@
 
 section.offer {
    min-height: 100vh;
-   padding: 2em;
+   padding: 2em clamp(.25em, 3vw, 2em);
    @include Flex(sb, none);
 
    section.daily { 
@@ -38,13 +38,13 @@ section.offer {
             color: $clr-white;
 
             h2 {
-               font-size: .9rem;
+               @include Clamp(.85, 4, .9);
                text-transform: uppercase;
                font-weight: 600;
             }
 
             h3 {
-               font-size: 3rem;
+               @include Clamp(1.75, 6, 3);
                text-shadow: 0 0 6px $clr-black;
                margin-top: .25em;
                font-weight: bold;
@@ -57,6 +57,7 @@ section.offer {
          background:rgb(250, 250, 250);
          padding: .5em;
          @include Flex(sb, c);
+         align-items: stretch;
 
          div.item {
             @include Flex(sa, c);
@@ -80,7 +81,7 @@ section.offer {
                flex-direction: column;
                
                h6 {
-                  font-size: 1.1rem;
+                  @include Clamp(.9, 4, 1.1);
                   text-align: center;
                }
 
@@ -98,7 +99,7 @@ section.offer {
                      color: $clr-white;
                      font-weight: 600;
                      font-family: 'Baloo 2', cursive;
-                     font-size: .9rem;
+                     @include Clamp(.85, 4, .9);
                      text-transform: uppercase;
                   }
 
@@ -122,7 +123,7 @@ section.offer {
             }
 
             span {
-               @include Rectangle(100px);
+               @include Rectangle(clamp(40px, 13vw, 100px));
                border-radius: 50%;
                @include Flex(c, c);
                margin-bottom: 2em;
@@ -199,7 +200,7 @@ section.offer {
          color: $clr-white;
          padding: .3em 0;
          font-weight: 500;
-         font-size: 1.5rem;
+         @include Clamp(1.25, 5, 1.5);
          letter-spacing: 1px;
          font-family: 'Baloo 2', cursive;
       }
@@ -242,11 +243,10 @@ section.offer {
          @include Flex(sa, c);
 
          button {
-            padding: .75em 0;
+            padding: .75em 2em;
             outline: 0;
             cursor: pointer;
             transition: .3s;
-            width: 35%;
             border-radius: .25em;
             border: 2px solid rgb(185, 51, 51);
 
@@ -279,6 +279,52 @@ section.offer {
                &:hover {
                   label { color: $clr-white; }
                   background: rgb(185, 51, 51);
+               }
+            }
+         }
+      }
+   }
+
+   @media (max-width: 1000px) {
+      flex-direction: column;
+
+      section.wrap {
+         width: 100%;
+      }
+
+      section.daily {
+         width: 100%;
+
+         figure {
+            width: 300px;
+            max-width: 70vw;
+         }
+
+         h3.name {
+            margin: 1em 0 .25em 0;
+         }
+
+         a {
+            margin-top: 2em;
+         }
+
+         button {
+            margin-top: 1em;
+         }
+      }
+   }
+
+   @media (max-width: 480px) {
+      section.wrap {
+         article.first-section {
+            flex-wrap: wrap;
+
+            div.item {
+               width: 50%;
+
+               span {
+                  &::before,
+                  &::after { display: none; }
                }
             }
          }

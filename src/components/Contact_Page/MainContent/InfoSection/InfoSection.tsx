@@ -8,15 +8,15 @@ const InfoSection = () => {
 
          <div className="part">
 
-            <h4>Lorem ispymdit</h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim cum aspernatur quae amet quos aut provident voluptatem ullam tempora.</p>
+            <h4>Send us a message</h4>
+            <p>If you want to send us a quick message, please use form next to this section. You must specify your username and your mail.</p>
 
          </div>
 
          <div className="part">
 
-            <h4>Lorem ispymdit</h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim cum aspernatur quae amet quos aut provident voluptatem ullam tempora.</p>
+            <h4>Contact us on a social media</h4>
+            <p>List of all social medias we're on are listed in a footer.</p>
 
          </div>
 

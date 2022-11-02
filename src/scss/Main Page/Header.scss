@@ -18,7 +18,7 @@ header.homepage-header {
          top: 50%;
          display: block;
          z-index: 9;
-         @include Rectangle(60px);
+         @include Rectangle(clamp(30px, 10vw, 60px));
          cursor: pointer;
          transition: .2s;
          color: whitesmoke;

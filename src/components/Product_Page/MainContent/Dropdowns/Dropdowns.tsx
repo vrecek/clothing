@@ -1,14 +1,14 @@
 import React from 'react'
-import { MdArrowDropDown } from 'react-icons/md'
+import { IDropdownsContent } from '../../../../interfaces/ProductPageInterfaces'
 import DropdownItem from './DropdownItem'
 
-const Dropdowns = () => {
+const Dropdowns = ({description, materials, details}: IDropdownsContent) => {
    return (
       <ul className="dropdowns">
 
-         <DropdownItem />
-         <DropdownItem />
-         <DropdownItem />
+         <DropdownItem content={description} title='Description' />
+         <DropdownItem content={details} title='Details' />
+         <DropdownItem content={materials} title='Materials' />
 
       </ul>
    )

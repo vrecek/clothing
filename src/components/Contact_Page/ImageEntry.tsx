@@ -11,7 +11,7 @@ const ImageEntry = () => {
          <div className="text">
 
             <h2>Contact us</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>Contact us if you have got any issues</p>
 
          </div>
 

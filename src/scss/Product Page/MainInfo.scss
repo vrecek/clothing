@@ -7,6 +7,37 @@ section.main-info {
    flex-direction: column;
    margin-bottom: 5em;
 
+   section.icons {
+      margin-top: .5em;
+      
+      div {
+         @include Flex(none, c);
+         color: #353535;
+         cursor: pointer;
+
+         span, p { transition: .3s }
+
+         span {
+            @include Rectangle(20px);
+            margin-right: .25em;
+
+            svg { @include FullSize; }
+         }
+
+         p {
+            font-size: .85rem;
+            font-weight: 500;
+         }
+
+         &:hover {
+            color: #606060;
+         }
+
+         &.false { color: crimson; }
+         &.true { color: green; }
+      }
+   }
+
    button {
       width: 100%;
       padding: 1em 0;
@@ -17,16 +48,48 @@ section.main-info {
       cursor: pointer;
       transition: .3s;
       margin-top: 1em;
+      position: relative;
+      overflow: hidden;
+
+      span {
+         position: absolute;
+         left: 50%;
+         bottom: 100%;
+         translate: -50% 0;
+         transition: .3s;
+         @include Rectangle(25px);
+         color: white;
+
+         svg { @include FullSize; }
+      }
 
       label {
          font-weight: 500;
          color: $clr-white;
          font-family: 'Baloo 2', cursive;
          font-size: 1.1rem;
+         transition: .3s;
+         display: block;
       }
 
       &:hover {
          background: darken(royalblue, 5%);
+      }
+
+      &.true,
+      &.empty {
+         pointer-events: none;
+
+         label { translate: 0 200%; }
+
+         span {
+            bottom: auto;
+            top: 50%;
+            translate: -50% -50%;
+         }
+
+         &.true { background: green; }
+         &.empty { background: crimson; } 
       }
    }
 
@@ -44,6 +107,7 @@ section.main-info {
          width: 100%;
          padding: .75em;
          cursor: pointer;
+         transition: .3s;
 
          p {
             pointer-events: none;
@@ -71,6 +135,7 @@ section.main-info {
             @include Center(95%);
             border-bottom: 1px solid #808080;
             padding: 1em 0;
+            @include Clamp(.9, 4, 1);
 
             &:last-child { border: 0; }
          }
@@ -79,47 +144,45 @@ section.main-info {
 
    div.price {
       @include Flex(none, c);
-      @include PriceStyle(2.25rem, 1.75rem, 1.25rem);
-      margin-top: 1.5em;
+      @include PriceStyle(
+         clamp(2rem, 6vw, 2.25rem), 
+         clamp(1.2rem, 5vw, 1.75rem), 
+         clamp(.85rem, 4vw, 1.25rem)
+      );
+      margin: 1em 0;
 
       h6.percent-discount {
          border-radius: 0 0 0 .15em;
       }
    }
 
-   p.tax {
-      margin-bottom: 2.25em;
-      font-size: .9rem;
-      color: rgb(60, 60, 60);
-      font-weight: 600;
-   }
-
    div.rating {
       @include Flex(none, c);
-      color: crimson;
       margin-bottom: 2em;
 
       span {
          @include Rectangle(20px);
          svg { @include FullSize; }
+
+         &.active { color: crimson; }
       }
 
       p {
          font-size: 1rem;
          font-weight: 700;
          margin-left: .5em;
+         color: crimson;
       }
    }
 
    h3.company {
-      text-transform: uppercase;
-      font-size: 1.2rem;
+      @include Clamp(1, 5, 1.2);
       color: rgb(60, 60, 60);
       font-weight: 500;
    }
 
    h1.name {
-      font-size: 2.75rem;
       font-weight: 700;
+      @include Clamp(1.8, 8, 2.75);
    }
 }

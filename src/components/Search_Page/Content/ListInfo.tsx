@@ -1,13 +1,16 @@
 import React from 'react'
 
-const ListInfo = () => {
+const ListInfo = ({details}: {details: string[]}) => {
    return (
       <ul>
 
-         <li>Lorem isopum</li>
-         <li>Lorem isopum</li>
-         <li>Lorem isopum</li>
-         <li>Lorem isopum</li>
+         {
+            details.map((x, i) => (
+               <li key={i}>
+                  {x}
+               </li>
+            ))
+         }
 
       </ul>
    )

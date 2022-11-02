@@ -1,0 +1,82 @@
+@import '../config';
+
+section.content.add {
+   position: relative;
+
+   form {      
+      button {
+         padding: 1em 5em;
+         outline: 0;
+         background: none;
+         border: 2px solid rgb(63, 78, 117);
+         border-radius: .25em;
+         cursor: pointer;
+         transition: .3s;
+
+         label {
+            font-family: 'Baloo 2', cursive;
+            font-weight: 500;
+            font-size: 1rem;
+         }
+
+         &:hover {
+            background: rgb(40, 50, 75);
+         }
+      }
+
+      input[type='text'],
+      input[type='number'],
+      textarea {
+         width: 100%;
+         background: rgb(40, 50, 75);
+         outline: 0;
+         border: 0;
+         padding: .75em;
+         border-radius: .5em;
+         font-family: 'Baloo 2', cursive;
+         font-size: 1rem;
+         color: $clr-white;
+      }
+
+      label {
+         font-size: .9rem;
+         font-weight: 600;
+         font-family: 'Baloo 2', cursive;
+         color: rgb(200, 200, 200);
+         display: block;
+      }
+
+      textarea {
+         resize: none;
+         height: 200px;
+      }
+
+      section.multiple {
+         &:not(:last-child) { margin-bottom: 2em; }
+
+         input:not(:last-child) { margin-bottom: .2em; }
+
+         div.icons {
+            display: flex;
+            margin-top: .1em;
+
+            span {
+               @include Rectangle(30px);
+               cursor: pointer;
+               transition: .3s;
+
+               svg { @include FullSize; pointer-events: none; }
+
+               &:hover {
+                  color: rgb(200, 200, 200);
+               }
+            }
+         }
+      }
+
+      div.input-div {
+         width: 100%;
+         margin-bottom: 2em;
+      }
+   }
+}

@@ -1,29 +1,29 @@
 import React from 'react'
+import { IOneCommentType } from '../../../../../interfaces/ProductPageInterfaces'
 import FigureImage from '../../../../Common/FigureImage'
-import ProductRate from '../../../../Main_Page/ItemsContainer/ProductRate'
+import blank from '../../../../../images/blank.png'
+import AuthorAndDate from './AuthorAndDate'
+import RateAndTitle from './RateAndTitle'
 
-const OneComment = () => {
+const OneComment = ({avatar, rate, title, date, text, authorName}: IOneCommentType) => {
    return (
       <article className="comment">
 
          <section className="user-info">
 
-            <FigureImage source='https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80' altTxt='Avatar' />
+            <FigureImage source={avatar || blank} altTxt='Avatar' />
 
             <div className='wrap'>
 
-               <div>
-                  <ProductRate rate={4} />
-                  <p className="name">Lorem ipsum</p>
-               </div>
+               <RateAndTitle title={title} rate={rate} />
 
-               <p className="date">Today</p>
+               <AuthorAndDate date={date} authorName={authorName} />
 
             </div>
 
          </section>
 
-         <p className="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dicta est facilis harum libero rerum optio ea deserunt excepturi molestiae iure, eaque itaque nisi repellat, reiciendis veniam in rem minima!</p>
+         <p className="text">{text}</p>
 
       </article>
    )

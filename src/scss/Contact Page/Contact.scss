@@ -39,7 +39,7 @@ main.contact {
    }
 
    section.content {
-      padding: 3em 2em;
+      padding: 3em clamp(.5em, 3vw, 2em);
 
       h1 {
          font-weight: 700;
@@ -107,7 +107,7 @@ main.contact {
                      border:1px solid rgb(200, 200, 200);
                      background: rgb(230, 230, 230);
                      font-family: 'Baloo 2', cursive;
-                     font-size: 1.05rem;
+                     @include Clamp(.95, 4, 1.05);
                   }
 
                   textarea {
@@ -135,6 +135,22 @@ main.contact {
 
                      &:hover { background: darken(royalblue, 5%); }
                   }
+               }
+            }
+         }
+      }
+   }
+
+   @media (max-width: 768px) {
+      section.content {
+         div.wrap {
+            flex-direction: column-reverse;
+
+            section.main {
+               width: 100%;
+
+               &.right {
+                  margin: 1em 0 2em 0;
                }
             }
          }

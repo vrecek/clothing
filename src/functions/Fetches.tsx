@@ -1,9 +1,12 @@
-import React from 'react'
-
 type RequestType = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
 interface MixReturn<T> {
    json: T,
+   code: number,
+   msg: string
+}
+
+interface FetchErrorReturn {
    code: number,
    msg: string
 }
@@ -59,4 +62,19 @@ export default class Fetches {
 
       return returnObj
    }
-}
+
+   public static returnFetchErrorState(err: any): FetchErrorReturn {
+      return { 
+         code: err?.code ?? 500, 
+         msg: err.json?.msg ?? 'Error message was not set' 
+     }
+   }
+
+   public static disableButton(item: HTMLElement) {
+      item.style.pointerEvents = 'none'
+   }
+
+   public static enableButton(item: HTMLElement) {
+      item.style.pointerEvents = 'all'
+   }
+} 

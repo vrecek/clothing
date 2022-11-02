@@ -4,8 +4,40 @@ main.search-page {
    min-height: calc(100vh - $navHeight);
    
    div.main-page-wrap {
-      padding: 3em 2em;
+      padding: 3em clamp(.5em, 3vw, 2em);
       @include Flex(sb, none);
+
+      div.no-found {
+         @include Flex(c, c);
+         width: 100%;
+         flex-direction: column;
+
+         p.info {
+            @include Clamp(1.2, 5, 1.5);
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: .25em;
+         }
+
+         p.query {
+            margin-bottom: 2em;
+            text-align: center;
+            font-size: 1.4rem;
+            font-style: italic;
+            font-family: 'Baloo 2', cursive;
+         }
+
+         figure {
+            width: 25%;
+            aspect-ratio: 1;
+            min-width: 200px;
+
+            img {
+               @include FullSize;
+               object-fit: cover;
+            }
+         }
+      }
    }
 
    aside.search-aside {
@@ -28,7 +60,7 @@ main.search-page {
 
             li {
                padding: 1.25em 1em;
-               font-size: .9rem;
+               font-size: .85rem;
                font-weight: 600;
                color: rgb(60, 60, 60);
                cursor: pointer;
@@ -77,7 +109,7 @@ main.search-page {
             border-radius: .5em;
             border: 1px solid royalblue;
             background: rgb(253, 253, 253);
-            margin-top: 1.5em;
+            margin-bottom: 1em;
             &:not(:last-child) { margin-right: .5em; }
 
             div {
@@ -107,19 +139,19 @@ main.search-page {
       }
 
       section.filters {
-         margin: 2em 0 2.5em 0;
+         margin: 0em 0 2.5em 0;
          border-top: 1px solid $clr-black;
          border-bottom: 1px solid $clr-black;
          padding: 1em 0 .75em 0;
 
          button.toggler {
             padding: .75em 0;
-            width: 150px;
+            @include Rectangle(35px);
             border: 1px solid black;
             border-radius: .2em;
             outline: 0;
             background: rgb(250, 250, 250);
-            @include Flex(sa, c);
+            @include Flex(c, c);
             cursor: pointer;
             margin-bottom: .5em;
 
@@ -128,12 +160,6 @@ main.search-page {
                transition: .3s;
                
                svg { @include FullSize; }
-            }
-
-            label {
-               font-family: 'Baloo 2', cursive;
-               font-weight: 500;
-               font-size: 1.1rem;
             }
          }
 
@@ -154,7 +180,7 @@ main.search-page {
 
             div.filter {
                &.dropdown {
-                  min-width: 16%;
+                  min-width: 120px;
                   position: relative;
                   &:not(:last-child) { margin-right: 1em; }
 
@@ -235,7 +261,7 @@ main.search-page {
                      background: rgb(230, 230, 230);
                      border-radius: .15em;
                      font-weight: 600;
-                     width: 17%;
+                     width: 80px;
                      min-width: max-content;
                      text-align: center;
                      font-size: .95rem;
@@ -257,10 +283,12 @@ main.search-page {
 
             figure {
                width: 23%;
+               aspect-ratio: 1;
                overflow: hidden;
+               @include Flex(c, c);
 
                img {
-                  width: 100%;
+                  height: 100%;
                }
             }
             
@@ -295,10 +323,11 @@ main.search-page {
                      @include Flex(none, c);
 
                      span {
-                        @include Rectangle(25px);
-                        color: crimson;
+                        @include Rectangle(22px);
 
                         svg { @include FullSize; }
+
+                        &.active { color: crimson; }
                      }
 
                      p {
@@ -311,7 +340,7 @@ main.search-page {
                   h2 {
                      font-family: 'Baloo 2', cursive;
                      font-weight: 600;
-                     font-size: 2rem;
+                     @include Clamp(1.2, 4, 2);
                      color: rgb(50, 50, 50);
                   }
 
@@ -321,59 +350,86 @@ main.search-page {
                &.second {
                   width: 25%;
 
-                  div.buttons {
-                     
-                     button {
-                        padding: .75em 0;
-                        width: 100%;
+                  button {
+                     padding: .75em 0;
+                     width: 100%;
+                     display: block;
+                     cursor: pointer;
+                     transition: .3s;
+                     border: 0;
+                     border-radius: .25em;
+                     background: royalblue;
+
+                     &,
+                     label,
+                     span { transition: .3s; }
+
+                     &:first-child { margin-bottom: .5em; }
+
+                     label {
+                        color: $clr-white;
+                        @include Clamp(.85, 4, 1.05);
+                        font-family: 'Baloo 2', cursive;
+                        font-weight: 500;
                         display: block;
-                        cursor: pointer;
-                        transition: .3s;
-                        border: 0;
-                        border-radius: .25em;
-                        background: royalblue;
+                     }
 
-                        &:first-child { margin-bottom: .5em; }
+                     &:hover {
+                        background: darken(royalblue, 5%);
+                     }
 
-                        label {
-                           color: $clr-white;
-                           font-size: 1.05rem;
-                           font-family: 'Baloo 2', cursive;
-                           font-weight: 500;
+                     &.cart {
+                        position: relative;
+                        overflow: hidden;
+
+                        span {
+                           position: absolute;
+                           left: 50%;
+                           bottom: 100%;
+                           translate: -50% 0;
+                           transition: .3s;
+                           @include Rectangle(25px);
+                           color: white;
+                  
+                           svg { @include FullSize; }
                         }
 
-                        &:hover {
-                           background: darken(royalblue, 5%);
-                        }
+                        &.true,
+                        &.empty {
+                           pointer-events: none;
 
-                        &:has(span) {
-                           @include Flex(sa, c);
-                           background: rgb(255, 87, 26);
+                           label { translate: 0 200%; }
 
                            span {
-                              @include Rectangle(25px);
-                              color: $clr-white;
-                              transition: .3s;
-
-                              svg { @include FullSize; }
+                              bottom: auto;
+                              top: 50%;
+                              translate: -50% -50%;
                            }
 
-                           &:hover { 
-                              background: rgb(245, 76, 14);
-                              span { scale: 1.1; } 
-                           }
+                           &.true { background: green; }
+                           &.empty { background: crimson; } 
                         }
                      }
                   }
 
                   div.price {
-                     @include PriceStyle(2.5rem, 1.5rem);
+                     @include PriceStyle(
+                        clamp(1.5rem, 4.5vw, 2.5rem), 
+                        clamp(1rem, 4.5vw, 1.5rem)
+                     );
                      @include Flex(c, c);
                      
                      &.active {
                         flex-direction: row !important;
 
-                        h5 { margin-left: .5em; margin-right: 0; }
+                        h5 { 
+                           margin-left: .5em; 
+                           margin-right: 0; 
+                        }
+                     }
+
+                     &:not(.active) {
+                        justify-content: flex-end;
                      }
 
                      h6 { display: none; }
@@ -382,39 +438,78 @@ main.search-page {
             }
          }
       }
+   }
 
-      div.current-location {
-         @include Flex(none, c);
+   @media (max-width: 1000px) {
+      div.main-page-wrap {
+         flex-direction: column;
+      }
 
-         p,
-         a {
-            color: $clr-black;
-            transition: .3s;
-            font-weight: 600;
-            font-family: 'Baloo 2', cursive;
-            text-transform: uppercase;
-            font-size: .95rem;
-            cursor: pointer;
+      aside.search-aside {
+         width: 100%;
+         margin-bottom: 1em;
 
-            &:hover {
-               color: rgb(100, 100, 100);
+         section.categories-num { display: none; }
+      }
+
+      section.search-content {
+         width: 100%;
+         border-left: 0;
+
+         section.container {
+            @include Flex(sa);
+            flex-wrap: wrap;
+            align-items: stretch;
+
+            article.item {
+               flex-direction: column;
+               width: 45%;
+
+               figure {
+                  margin: 0 auto;
+                  width: 75%;
+               }
+
+               section {
+                  &.first {
+                     width: 100%;
+                     ul { display: none; }
+                  }
+
+                  &.second {
+                     width: 100%;
+
+                     div.price {
+                        margin: 1em 0;
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   @media (max-width: 480px) {
+      aside.search-aside {
+         div.query { margin-bottom: 0; }
+      }
+      
+      section.search-content {
+         div.current-location { display: none; }
+
+         section.filters {
+            section.filter-menu {
+               div.filter {
+                  &.price { width: 100%; }
+               }
             }
          }
 
-         a {
-            text-decoration: none;
-         }
-
-         p {
-            &.active {
-               pointer-events: none;
-               color: royalblue;
+         section.container {
+            article.item {
+               width: 250px;
+               max-width: 100%;
             }
-         }
-
-         span {
-            @include Rectangle(25px);
-            svg { @include FullSize; }
          }
       }
    }

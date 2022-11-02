@@ -15,8 +15,9 @@ const ItemsDiv = ({products}: IItemsContainerProducts) => {
                      name={x.name}
                      discount={x.discount}
                      price={x.price}
-                     rating={x.rating}
-                     id={x.id}
+                     starsSum={x.starsSum}
+                     totalVotes={x.totalVotes}
+                     _id={x._id}
                      image={x.image}
                   />
                ))

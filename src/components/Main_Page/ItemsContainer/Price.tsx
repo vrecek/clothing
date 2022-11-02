@@ -11,11 +11,13 @@ const Price = ({price, discount}: IPrice) => {
 
          <h4>{price} $</h4>
          {
-            discount && 
+            discount ? 
             <>
                <h5>{priceFix} $</h5>
                <h6 className="percent-discount">-{discount} %</h6>
             </>
+            :
+            <></>
          }
 
       </div>

@@ -1,29 +1,20 @@
 import React from 'react'
-import { AiFillStar } from 'react-icons/ai'
 import { ISumDiv } from '../../../../interfaces/ProductPageInterfaces'
+import StarLine from './StarLine'
+import StarTotalVotes from './StarTotalVotes'
+import StarTypeInfo from './StarTypeInfo'
 
 const SumDiv = ({totalNumberRating, rateNumber, totalRating}: ISumDiv) => {
-   const width: number = (100 * totalNumberRating) / totalRating
+   const width: number = totalNumberRating === 0 ? 0 : (100 * totalNumberRating) / totalRating
 
    return (
       <div className="wrap">
 
-         <div className='first'>
+         <StarTypeInfo number={rateNumber} />
 
-            <span><AiFillStar /></span>
-            <p>{rateNumber}</p>
+         <StarLine width={width} />
 
-         </div>
-
-         <div className="line">
-            <div style={{width: `${width}%`}} className="fill"></div>
-         </div>
-
-         <div className="last">
-
-            <p>{totalNumberRating}</p>
-
-         </div>
+         <StarTotalVotes votesTotal={totalNumberRating} />
 
       </div>
    )

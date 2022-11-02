@@ -1,10 +1,9 @@
 import React from 'react'
 import { MdArrowDropDown } from 'react-icons/md'
 import DropDown from '../../../../functions/DropdownClass'
+import { ISizeCurrent } from '../../../../interfaces/ProductPageInterfaces'
 
-const CurrentSize = () => {
-   const [dd] = React.useState<DropDown>(new DropDown())
-
+const CurrentSize = ({dd, currentSize}: ISizeCurrent) => {
    const expandMenu = (e: React.MouseEvent): void => {
       const t: HTMLElement = e.target as HTMLElement
       const list: HTMLElement = t.parentElement!.children[2] as HTMLElement
@@ -16,7 +15,7 @@ const CurrentSize = () => {
    return (
       <div onClick={expandMenu} className="current">
 
-         <p>356</p>
+         <p>{currentSize}</p>
          <span>{<MdArrowDropDown />}</span>
 
       </div>

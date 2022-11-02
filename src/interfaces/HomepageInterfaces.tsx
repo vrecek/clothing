@@ -1,3 +1,5 @@
+import { IProductRate } from "./CommonInterfaces"
+
 export interface ISlider {
    imagesNum: number,
    children: any
@@ -10,8 +12,7 @@ export interface ICategoryImage {
 }
 
 export interface ICategoryList {
-   url?: string,
-   icon?: JSX.Element
+   url?: string
    name: string
 }
 
@@ -26,12 +27,11 @@ export interface IMenuComponent {
    rightDetails: IMenuRight 
 }
 
-export interface IHomepageProduct {
-   id: string,
+export interface IHomepageProduct extends IProductRate {
+   _id: string,
    name: string,
    image: string,
    price: number,
-   rating: number,
    discount?: number
 }
 
@@ -82,4 +82,28 @@ export interface ITimeLeft {
    hours: number,
    minutes: number,
    seconds: number
+}
+
+export interface IHomepageFetchState {
+   categoryProducts: {
+      bigHeader: string,
+      smallHeader: string,
+      products: IHomepageProduct[]
+   }[],
+
+   discountedProduct: IDailyOffer
+}
+
+export interface IDailyOffer {
+   image: string,
+   name: string,
+   price: number,
+   discountPercent: number,
+   _id: string
+}
+
+export interface IHiddenMenuList {
+   url: string,
+   icon: JSX.Element,
+   name: string
 }

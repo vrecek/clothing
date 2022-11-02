@@ -29,7 +29,7 @@ nav.categories {
                cursor: pointer;
                border-bottom: 1px solid rgb(230, 230, 230);
                font-family: 'Baloo 2', cursive;
-               font-size: 1.1rem;
+               @include Clamp(.9, 5, 1.1);
                font-weight: 500;
                @include Flex(sb, c);
                position: relative;
@@ -62,7 +62,7 @@ nav.categories {
       }
 
       span.menu-icon {
-         @include Rectangle(35px);
+         @include Rectangle(clamp(25px, 7vw, 35px));
          cursor: pointer;
          transition: .3s;
 
@@ -76,6 +76,7 @@ nav.categories {
    ul.categories {
       list-style: none;
       display: flex;
+      flex-wrap: wrap;
 
       li.category {
          padding: 1em 2em;
@@ -83,8 +84,11 @@ nav.categories {
          text-align: center;
          cursor: pointer;
          transition: .3s;
-         font-size: 1rem;
          font-weight: 500;
+         flex-basis: 0;
+         flex-grow: 1;
+         white-space: nowrap;
+         @include Clamp(.85, 4, 1);
 
          section.hover-menu {
             position: absolute;
@@ -99,7 +103,7 @@ nav.categories {
             transition: .3s;
             @include Flex(sb, none);
             text-align: left;
-            padding: 1em 3em;
+            padding: 1em clamp(.5em, 5vw, 3em);
             z-index: 99;
 
             section.image {
@@ -139,6 +143,8 @@ nav.categories {
                      object-fit: cover;
                   }
                }
+
+               @media (max-width: 480px) { display: none; }
             }
 
             ul {
@@ -151,19 +157,19 @@ nav.categories {
                         color: rgb(80, 80, 80);
                      }
 
-                     font-size: 1.5rem;
+                     @include Clamp(1.2, 4, 1.5);
                      margin-bottom: .5em;
                   }
 
                   &:not(:first-child) {
                      @include Flex(none, c);
-                     font-size: 1.25rem;
+                     @include Clamp(.95, 4, 1.25);
                      transition: .3s;
                      cursor: pointer;
 
                      span {
                         margin-right: .5em;
-                        @include Rectangle(20px);
+                        @include Rectangle(clamp(10px, 4vw, 20px));
 
                         svg { @include FullSize; }
                      }

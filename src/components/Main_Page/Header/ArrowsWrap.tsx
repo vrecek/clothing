@@ -18,11 +18,13 @@ const ArrowsWrap = ({children, imagesNum}: ISlider) => {
 
    const animateClick = (elem: HTMLElement): void => {
       elem.style.background = 'orangered'
+      elem.style.color = 'orangered'
       elem.style.scale = '.7'
 
       setTimeout(() => {
          elem.style.scale = '1'
          elem.style.background = 'none'
+         elem.style.color = 'whitesmoke'
       }, 200);
    }
 

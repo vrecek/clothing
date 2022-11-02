@@ -1,19 +1,22 @@
 type ElementsType = 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1'
 
 class AppendResult {
-   private message: string
+   private message: string | null
+   private cname: string | null
+
    private element: ElementsType
-   private cname: string
+
    private isElementAppended: boolean
 
    private appendedElement: Element | null
    private timeout: NodeJS.Timer | null
 
    public constructor(headerType: ElementsType, cname?: string) {
-      this.message = 'No message set'
-      this.isElementAppended = false
-      this.cname = cname ?? ''
+      this.message = null
+      this.cname = cname ?? null
       this.element = headerType
+
+      this.isElementAppended = false
 
       this.timeout = null
       this.appendedElement = null
@@ -31,8 +34,8 @@ class AppendResult {
       if(this.isElementAppended) return
 
       const elem = document.createElement( this.element )
-      elem.className = this.cname
-      elem.textContent = this.message
+      elem.className = this.cname ?? ''
+      elem.textContent = this.message ?? 'No message set'
 
       appendTo.appendChild( elem )
 
@@ -48,14 +51,8 @@ class AppendResult {
    }
 
 
-   public isAppended(): boolean {
-      return this.isElementAppended
-   }
-
-
    public removeAppended(): void {
-      if(!this.isElementAppended || !this.appendedElement) return
-
+      if(!this.appendedElement) return
       if(this.timeout) clearTimeout(this.timeout)
       
       this.appendedElement.remove()
@@ -63,11 +60,20 @@ class AppendResult {
    }
 
 
-   public set setMessage(msg: string) {
+   public get isAppended(): boolean {
+      return this.isElementAppended
+   }
+
+   public get hasMessageSet(): boolean {
+      return !!this.message
+   }
+
+
+   public set setMessage(msg: string | null) {
       this.message = msg
    }
 
-   public set setClass(cname: string) {
+   public set setClass(cname: string | null) {
       this.cname = cname
    }
 }

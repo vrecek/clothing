@@ -13,7 +13,6 @@ nav.layout-navigation {
       section {
          &.searchbar {
             width: 35%;
-
             position: relative;
             height: 40px;
             @include Flex(none, c);
@@ -26,7 +25,7 @@ nav.layout-navigation {
                padding-left: .5em;
                border: 1px solid #303030;
                border-right: 0;
-               font-size: 1rem;
+               @include Clamp(.85, 4, 1);
                font-family: 'Baloo 2', cursive;
                font-weight: 500;
                border-radius: .15em 0 0 .15em;
@@ -38,7 +37,7 @@ nav.layout-navigation {
                   right: 0;
                   top: 50%;
                   transform: translate(-50%, -50%);
-                  @include Rectangle(20px);
+                  @include Rectangle(clamp(12px, 4vw, 20px));
                   color: crimson;
                   cursor: pointer;
                   transition: .3s;
@@ -65,7 +64,7 @@ nav.layout-navigation {
                   aspect-ratio: 1;
                   
                   svg {
-                     @include Rectangle(25px);
+                     @include Rectangle(clamp(16px, 5vw, 25px));
                      transition: .3s;
                   }
                }
@@ -237,36 +236,9 @@ nav.layout-navigation {
                            }
                         }
 
-                        section.not-logged {
-                           @include Flex(c, c);
-                           flex-direction: column;
+                        section.usr {
                            width: 300px;
-
-                           div.or {
-                              margin: 1em 0;
-                              position: relative;
-                              width: 100%;
-
-                              span {
-                                 @include Absolute(50%, 50%);
-                                 transform: translate(-50%, -50%);
-                                 width: 100%;
-                                 height: 2px;
-                                 background: black;
-                              }
-
-                              p {
-                                 text-transform: uppercase;
-                                 font-weight: 700;
-                                 position: relative;
-                                 text-align: center;
-                                 background: rgb(240, 240, 240);
-                                 margin: 0 auto;
-                                 width: max-content;
-                                 padding: 0 .5em;
-                                 z-index: 3;
-                              }
-                           }
+                           max-width: 100%;
 
                            button {
                               border-radius: .15em;
@@ -276,6 +248,7 @@ nav.layout-navigation {
                               border: 0;
                               cursor: pointer;
                               transition: .3s;
+                              position: relative;
 
                               label { 
                                  color: $clr-white; 
@@ -292,13 +265,58 @@ nav.layout-navigation {
                                  background: purple;
                                  &:hover { background: darken(purple, 10%); }
                               }
+
+                              &.logout {
+                                 background: crimson;
+                                 &:hover { background: darken(crimson, 10%); }
+                              }
+                           }
+
+                           &.logged {
+                              p.greet {
+                                 font-size: .9rem;
+                                 font-weight: 500;
+                                 margin-bottom: .25em;   
+                                 color: #454545;
+                              }
+                           }
+
+                           &.not-logged {
+                              @include Flex(c, c);
+                              flex-direction: column;
+   
+                              div.or {
+                                 margin: 1em 0;
+                                 position: relative;
+                                 width: 100%;
+   
+                                 span {
+                                    @include Absolute(50%, 50%);
+                                    transform: translate(-50%, -50%);
+                                    width: 100%;
+                                    height: 2px;
+                                    background: black;
+                                 }
+   
+                                 p {
+                                    text-transform: uppercase;
+                                    font-weight: 700;
+                                    position: relative;
+                                    text-align: center;
+                                    background: rgb(240, 240, 240);
+                                    margin: 0 auto;
+                                    width: max-content;
+                                    padding: 0 .5em;
+                                    z-index: 3;
+                                 }
+                              }
                            }
                         }
                      }
                   }
 
                   span.icon-entry {
-                     @include Rectangle(28px);
+                     @include Rectangle(clamp(25px, 6vw, 28px));
                      cursor: pointer;
                      transition: .3s;
 
@@ -341,12 +359,42 @@ nav.layout-navigation {
       @include Flex(c, c);
 
       h1 {
-         font-size: 1.5rem;
+         @include Clamp(.9, 5, 1.5);
          word-spacing: 2px;
          color: $clr-white;
          font-weight: 800;
          font-family: 'Baloo 2', cursive;
          text-transform: uppercase;
+      }
+   }
+
+   @media (max-width: 768px) {
+      section.bottom-bar {
+         section {
+            &.searchbar {
+               width: 55%;
+            }
+
+            &.logo { display: none; }
+         }
+      }
+   }
+
+   @media (max-width: 480px) {
+      section.upper-bar { display: none; }
+
+      section.bottom-bar {
+         padding: 0 .5em;
+
+         section {
+            &.icons {
+               ul { li {
+                  &:nth-child(1) {
+                     span.icon-entry { display: none; }
+                  }
+               } }
+            }
+         }
       }
    }
 }

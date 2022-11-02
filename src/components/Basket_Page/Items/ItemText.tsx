@@ -1,11 +1,12 @@
 import React from 'react'
+import { IItemText } from '../../../interfaces/BasketInterfaces'
 
-const ItemText = () => {
+const ItemText = ({company, name}: IItemText) => {
    return (
       <section className="text">
 
-         <p className="company">Conqesatur</p>
-         <p className='name'>Lorem ipsum dolorsit fasfasasf fasafsfasfas afsfasfas afsfasfs</p>
+         <p className="company">{company}</p>
+         <p className='name'>{name}</p>
 
       </section>
    )

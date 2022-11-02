@@ -1,13 +1,14 @@
 import React from 'react'
+import { IFilterState } from '../../../../interfaces/SearchpageInterfaces'
 import ActiveFilters from './ActiveFilters'
 import Filters from './Filters'
 
-const FiltersWrap = () => {
+const FiltersWrap = ({filtersState}: IFilterState) => {
    return (
       <>
          <ActiveFilters />
 
-         <Filters />
+         <Filters filtersState={filtersState} />
       </>
    )
 }

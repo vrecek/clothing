@@ -7,29 +7,29 @@ import img3 from '../images/Homepage info/img3.jpg'
 const getHomepageSectionInfo = (): IInfo[] => {
    return shuffleArray([
       {
-         header: 'Lorem ipsumsit amet',
-         para: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, veniam meslati.', 
+         header: 'Looking for a discounts?',
+         para: 'Explore our discounted offers and get something for yourself', 
          image: img1,
-         btnText: 'Explore offer',
-         url: '/',
+         btnText: 'Check for discounts',
+         url: '/search/all/sale',
          txtCname: 'light'
       },
       
       {
-         header: 'Lorem ipsumsit amet',
-         para: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, veniam meslati.', 
+         header: 'Check our latest products',
+         para: 'Check out our latest clothes, maybe you will like them', 
          image: img2,
-         btnText: 'Explore offer',
-         url: '/',
+         btnText: 'Explore',
+         url: '/search/all/latest',
          txtCname: 'light'
       },
 
       {
-         header: 'Lorem ipsumsit amet',
-         para: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, veniam meslati.', 
+         header: 'Any issues ?',
+         para: 'Contact us if you have encountered any problems', 
          image: img3,
-         btnText: 'Explore offer',
-         url: '/',
+         btnText: 'Contact us',
+         url: '/contact',
          txtCname: 'dark'
       },
    ])

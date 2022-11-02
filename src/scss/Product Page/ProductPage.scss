@@ -1,8 +1,6 @@
 @import '../config';
 
 main.product-page {
-   min-height: 100vh;
-
    section.main-content {
       @include Flex(sa, none);
       margin-bottom: 2em;
@@ -10,9 +8,9 @@ main.product-page {
       section.image-container {
          width: 35%;
          height: calc(100vh - $navHeight);
-         position: sticky;
-         top: calc($navHeight / 2);
          padding: 2em;
+         position: sticky;
+         top: $navHeight;
 
          section.all-images {
             width: 100%;
@@ -24,14 +22,20 @@ main.product-page {
                &:not(:last-child) { margin-right: .5em; }
                width: 27%;
                height: 100%;
-               border: 2px solid #6e6e6e;
+               border: 2px solid #585858;
                border-radius: .2em;
                padding: .25em;
                cursor: pointer;
+               @include Flex(c, c);
 
                img {
-                  @include FullSize;
-                  object-fit: cover;
+                  height: 100%;
+                  pointer-events: none;
+               }
+
+               &.active {
+                  pointer-events: none;
+                  border-color: royalblue;
                }
             }
          }
@@ -42,6 +46,7 @@ main.product-page {
             background: rgb(235, 235, 235);
             @include Flex(c, c);
             border-radius: .15em;
+            overflow: hidden;
 
             img {
                width: 100%;
@@ -90,21 +95,72 @@ main.product-page {
                   div.info {
                      @include Flex(none, c);
                      font-size: 1rem;
-                     &:not(:last-child) { margin-bottom: .5em;}
+                     &:not(:last-child) { margin-bottom: .5em; }
+                     padding-left: 1em;
+                     position: relative;
 
                      h5 {
-                        font-weight: 700;
+                        font-weight: 600;
                         margin-right: .5em;
+                     }
+
+                     &::before {
+                        content: '▮';
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        translate: 0 -50%;
+                        color: #303030;
                      }
                   }
 
                   p {
                      font-size: .9rem;
-                     color: #404040;
+                     color: #303030;
                   }
                }
             }
          }
       }
+
+      @media (max-width: 1000px) {
+         flex-direction: column;
+
+         section.image-container {
+            position: static;
+            width: 100%;
+            @include Flex(c, c);
+            padding: 2em 0;
+            height: auto;
+
+            section.all-images {
+               width: clamp(50px, 10vw, 80px);
+               aspect-ratio: 1;
+               flex-direction: column;
+
+               figure {
+                  width: 100%;
+                  &:not(:last-child) { margin-bottom: .25em; }
+               }
+            }
+
+            figure.main {
+               width: 50vw;
+               aspect-ratio: 1;
+               background: none;
+
+               img {
+                  width: auto;
+                  height: 100%;
+               }
+            }
+         }
+
+         article.content {
+            width: 100%;
+         }
+      }
+
+      @media (max-width: 480px) { article.content { padding: 2em .75em; } }
    }
 }

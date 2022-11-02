@@ -9,7 +9,8 @@ export interface ILayoutWrap {
 
 export interface IListIcon {
    icon: JSX.Element,
-   hiddenComponent: JSX.Element
+   hiddenComponent: JSX.Element,
+   url?: string
 }
 
 export interface IUserMenuList {

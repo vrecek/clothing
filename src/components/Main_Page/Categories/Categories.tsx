@@ -6,22 +6,23 @@ import MenuComponent from './Menus/MenuComponent'
 import accImg from '../../../images/Category menu/acc.jpg'
 import clothingImg from '../../../images/Category menu/clothing.jpg'
 import footwearImg from '../../../images/Category menu/footwear.jpg'
-import saleImg from '../../../images/Category menu/sale.jpg'
-import { FaTimes } from 'react-icons/fa'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
 
 const Categories = () => {
+   const n: NavigateFunction = useNavigate()
+
    const accObj: IMenuComponent = {
       listArr: [[
          { name: 'Jewelery' },
-         { url: '/', name: 'Rings', icon: <FaTimes /> },
-         { url: '/', name: 'Sigils', icon: <FaTimes /> },
-         { url: '/', name: 'Necklaces', icon: <FaTimes /> },
-         { url: '/', name: 'Piercings', icon: <FaTimes /> }
+         { url: '/', name: 'Rings' },
+         { url: '/', name: 'Sigils' },
+         { url: '/', name: 'Necklaces' },
+         { url: '/', name: 'Piercings' }
       ],
 
       [
          { name: 'Gadgets' },
-         { url: '/', name: 'Watches', icon: <FaTimes /> }
+         { url: '/', name: 'Watches' }
       ]],
 
       rightDetails: { url: '/', header: 'Stylish jewelery', image: accImg }
@@ -30,25 +31,25 @@ const Categories = () => {
    const clothingObj: IMenuComponent = {
       listArr: [[
          { name: 'Top clothing' },
-         { url: '/', name: 'Hoodies', icon: <FaTimes /> },
-         { url: '/', name: 'T-shirts', icon: <FaTimes /> },
-         { url: '/', name: 'Tops', icon: <FaTimes /> },
-         { url: '/', name: 'Sleeveless shirt', icon: <FaTimes /> },
-         { url: '/', name: 'Jacket', icon: <FaTimes /> },
-         { url: '/', name: 'Suits', icon: <FaTimes /> },
-         { url: '/', name: 'Vests', icon: <FaTimes /> },
+         { url: '/', name: 'Hoodies' },
+         { url: '/', name: 'T-shirts' },
+         { url: '/', name: 'Tops' },
+         { url: '/', name: 'Sleeveless shirt' },
+         { url: '/', name: 'Jacket' },
+         { url: '/', name: 'Suits' },
+         { url: '/', name: 'Vests' },
       ],
 
       [
          { name: 'Pants' },
-         { url: '/', name: 'Jeans', icon: <FaTimes /> },
-         { url: '/', name: 'Sweatpants', icon: <FaTimes /> },
-         { url: '/', name: 'Shorts', icon: <FaTimes /> },
-         { url: '/', name: 'Leggins', icon: <FaTimes /> },
-         { url: '/', name: 'Joggers', icon: <FaTimes /> },
-         { url: '/', name: 'Suit pants', icon: <FaTimes /> },
-         { url: '/', name: 'Underwear', icon: <FaTimes /> },
-         { url: '/', name: 'Boxers', icon: <FaTimes /> },
+         { url: '/', name: 'Jeans' },
+         { url: '/', name: 'Sweatpants' },
+         { url: '/', name: 'Shorts' },
+         { url: '/', name: 'Leggins' },
+         { url: '/', name: 'Joggers' },
+         { url: '/', name: 'Suit pants' },
+         { url: '/', name: 'Underwear' },
+         { url: '/', name: 'Boxers' },
       ]],
       
       rightDetails: { url: '/', header: 'In fashion', image: clothingImg }
@@ -57,65 +58,31 @@ const Categories = () => {
    const footwearObj: IMenuComponent = {
       listArr: [[
          { name: 'Type' },
-         { url: '/', name: 'Sneakers', icon: <FaTimes /> },
-         { url: '/', name: 'High boots', icon: <FaTimes /> },
-         { url: '/', name: 'Crocs', icon: <FaTimes /> },
-         { url: '/', name: 'Boots', icon: <FaTimes /> },
-         { url: '/', name: 'Combat boots', icon: <FaTimes /> },
-         { url: '/', name: 'Heels', icon: <FaTimes /> },
-         { url: '/', name: 'Suit shoes', icon: <FaTimes /> },
-         { url: '/', name: 'Hiking boots', icon: <FaTimes /> },
-         { url: '/', name: 'Slippers', icon: <FaTimes /> },
-         { url: '/', name: 'Flats', icon: <FaTimes /> },
-         { url: '/', name: 'Sandals', icon: <FaTimes /> },
+         { url: '/', name: 'Sneakers' },
+         { url: '/', name: 'High boots' },
+         { url: '/', name: 'Crocs' },
+         { url: '/', name: 'Boots' },
+         { url: '/', name: 'Combat boots' },
+         { url: '/', name: 'Heels' },
+         { url: '/', name: 'Suit shoes' },
+         { url: '/', name: 'Hiking boots' },
+         { url: '/', name: 'Slippers' },
+         { url: '/', name: 'Flats' },
+         { url: '/', name: 'Sandals' },
       ],
 
       [
          { name: 'Company' },
-         { url: '/', name: 'Nike', icon: <FaTimes /> },
-         { url: '/', name: 'Adidas', icon: <FaTimes /> },
-         { url: '/', name: 'New balance', icon: <FaTimes /> },
-         { url: '/', name: 'Puma', icon: <FaTimes /> },
-         { url: '/', name: 'Asics', icon: <FaTimes /> },
-         { url: '/', name: 'Kering', icon: <FaTimes /> },
-         { url: '/', name: 'Burberry', icon: <FaTimes /> },
+         { url: '/', name: 'Nike' },
+         { url: '/', name: 'Adidas' },
+         { url: '/', name: 'New balance' },
+         { url: '/', name: 'Puma' },
+         { url: '/', name: 'Asics' },
+         { url: '/', name: 'Kering' },
+         { url: '/', name: 'Burberry' },
       ]],
       
       rightDetails: { url: '/', header: 'Best footwear', image: footwearImg }
-   }
-
-   const saleObj: IMenuComponent = {
-      listArr: [[
-         { name: 'Price' },
-         { url: '/', name: '<10 $', icon: <FaTimes /> },
-         { url: '/', name: '<25 $', icon: <FaTimes /> },
-         { url: '/', name: '<50 $', icon: <FaTimes /> },
-         { url: '/', name: '<100 $', icon: <FaTimes /> },
-         { url: '/', name: '>100 $', icon: <FaTimes /> },
-      ],
-
-      [
-         { name: 'Percent' },
-         { url: '/', name: '1-10%', icon: <FaTimes /> },
-         { url: '/', name: '11-20%', icon: <FaTimes /> },
-         { url: '/', name: '21-30%', icon: <FaTimes /> },
-         { url: '/', name: '31-40%', icon: <FaTimes /> },
-         { url: '/', name: '41-50%', icon: <FaTimes /> },
-         { url: '/', name: 'Any', icon: <FaTimes /> },
-      ],
-
-      [
-         { name: 'Type' },
-         { url: '/', name: 'Footwear', icon: <FaTimes /> },
-         { url: '/', name: 'Hoodies', icon: <FaTimes /> },
-         { url: '/', name: 'Hats', icon: <FaTimes /> },
-         { url: '/', name: 'T-shirts', icon: <FaTimes /> },
-         { url: '/', name: 'Tops', icon: <FaTimes /> },
-         { url: '/', name: 'Jewelery', icon: <FaTimes /> },
-         { url: '/', name: 'Underwear', icon: <FaTimes /> },
-      ]],
-      
-      rightDetails: { url: '/', header: 'Best discounts', image: saleImg }
    }
 
    return (
@@ -140,12 +107,15 @@ const Categories = () => {
                <MenuComponent listArr={footwearObj.listArr} rightDetails={footwearObj.rightDetails}  />
             </li>
 
-            <li className='category'>
+            <li onClick={() => n('/search/all/sale')} className='category'>
                On sale 
-               <MenuComponent listArr={saleObj.listArr} rightDetails={saleObj.rightDetails}  />
             </li>
 
-            <li className='category'>
+            <li onClick={() => n('/search/all/popular')} className='category'>
+               Popular
+            </li>
+
+            <li onClick={() => n('/search/all/latest')} className='category'>
                Latest
             </li>
 
